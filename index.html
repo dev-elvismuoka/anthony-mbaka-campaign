@@ -239,9 +239,18 @@
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-10 dark:text-white">Muthwani Ward Villages</h2>
             <div class="flex flex-wrap justify-center gap-2 mb-10" id="village-buttons"></div>
-            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                 <div class="col-span-full text-center py-10 text-gray-400"><i class="fas fa-images text-4xl mb-3"></i><p>Select a village above.</p></div>
-            </div>
+           <div id="gallery-grid" class="flex overflow-x-auto gap-4 py-6 px-2 snap-x snap-mandatory scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
+    
+    <div class="min-w-full text-center py-10 text-gray-400 flex flex-col items-center justify-center border-2 border-dashed border-gray-200 rounded-xl">
+        <i class="fas fa-images text-4xl mb-3"></i>
+        <p>Select a village above to swipe through photos.</p>
+    </div>
+
+</div>
+
+<div class="text-center text-gray-400 text-xs mt-2 animate-pulse">
+    <i class="fas fa-chevron-left"></i> Swipe to see all photos <i class="fas fa-chevron-right"></i>
+</div>
         </div>
     </section>
 
@@ -441,27 +450,30 @@
 
         // Load Images Logic (Standard Limit 100)
         function loadVillageImages(villageName) {
-            galleryGrid.innerHTML = ''; // Clear grid
-            const maxPhotos = 100; // Limit
+            // 1. Clear the gallery
+            galleryGrid.innerHTML = '';
             
+            // 2. Set your limit (e.g., 100 photos)
+            const maxPhotos = 100; 
+
             for(let i=1; i<=maxPhotos; i++) {
                 const imgContainer = document.createElement('div');
-                // Start hidden
-                imgContainer.className = "hidden relative group overflow-hidden rounded-lg shadow-md h-64 bg-gray-200";
+                
+                // IMPORTANT: 'min-w-[300px]' forces it to be wide. 'flex-shrink-0' stops it from squishing.
+                imgContainer.className = "hidden min-w-[280px] md:min-w-[350px] snap-center relative group overflow-hidden rounded-lg shadow-md h-64 bg-gray-200 flex-shrink-0";
                 
                 const img = document.createElement('img');
-                img.loading = "lazy";
+                img.loading = "lazy"; // Keeps it fast
                 img.src = `images/${villageName}-${i}.jpg`;
+                img.alt = `${villageName} Photo`;
                 img.className = "w-full h-full object-cover transform group-hover:scale-110 transition duration-500";
                 
-                // Show if found
+                // Only show if image exists
                 img.onload = function() {
-                    imgContainer.classList.remove('hidden');
-                    imgContainer.classList.add('block');
+                    imgContainer.classList.remove('hidden'); 
                 };
-                // Remove if missing
                 img.onerror = function() {
-                    imgContainer.remove();
+                    imgContainer.remove(); 
                 };
 
                 imgContainer.appendChild(img);
