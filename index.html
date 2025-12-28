@@ -262,12 +262,22 @@
         </div>
     </section>
 
-    <section id="downloads" class="py-20 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 reveal">
+   <section id="downloads" class="py-20 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 reveal">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="bg-wiper-blue/10 dark:bg-blue-900/20 rounded-2xl p-8 md:p-12 text-center">
-                <h2 class="text-3xl font-bold mb-4 dark:text-white">Campaign Posters</h2>
-                <p class="mb-8 text-gray-600 dark:text-gray-300">Download and share to support the movement.</p>
-                <div id="posters-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+            <div class="bg-wiper-blue/10 dark:bg-blue-900/20 rounded-2xl p-8 md:p-12">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold mb-4 dark:text-white">Join the Digital Team</h2>
+                    <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                        Swipe to browse. Click the <i class="fas fa-eye"></i> to preview, or <i class="fas fa-download"></i> to save.
+                    </p>
+                </div>
+
+                <div id="posters-container" class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
+                    </div>
+                
+                <div class="text-center text-gray-400 text-sm animate-pulse">
+                    <i class="fas fa-chevron-left"></i> Swipe to see more <i class="fas fa-chevron-right"></i>
+                </div>
             </div>
         </div>
     </section>
@@ -380,18 +390,26 @@
         if(newsCont) pastNews.forEach(n => newsCont.innerHTML += `<article class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-xl transition group"><div class="h-48 overflow-hidden"><img src="${n.image}" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://via.placeholder.com/400'"></div><div class="p-5"><div class="flex justify-between mb-2"><span class="text-xs font-bold text-wiper-blue bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded">${n.category}</span><span class="text-xs text-gray-400">${n.date}</span></div><h3 class="font-bold text-lg mb-2 dark:text-white">${n.title}</h3><p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-3">${n.desc}</p></div></article>`);
 
         // Posters (Grid)
+        // --- BUILD POSTERS (Swipe + Lightbox) ---
+        // --- BUILD POSTERS (Compact Thumbnail Mode) ---
         const postCont = document.getElementById('posters-container');
         if(postCont) {
-            postCont.className = "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"; // Force Grid
             posters.forEach(p => {
                 postCont.innerHTML += `
-                <div class="group relative rounded-lg overflow-hidden shadow-lg aspect-[3/4] transition-transform duration-300 hover:scale-105 bg-gray-100">
-                    <img src="${p.file}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/300x400'">
-                    <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center p-3 text-center">
-                        <p class="text-white text-sm font-bold mb-3 transform translate-y-4 group-hover:translate-y-0 transition duration-300">${p.title}</p>
-                        <div class="flex flex-col gap-2 w-full px-4 transform translate-y-4 group-hover:translate-y-0 transition duration-300 delay-75">
-                            <button onclick="openLightbox('${p.file}')" class="bg-white text-gray-900 w-full py-2 rounded-full text-xs font-bold hover:bg-gray-200 transition flex items-center justify-center gap-2"><i class="fas fa-eye"></i> View</button>
-                            <a href="${p.file}" download target="_blank" class="bg-wiper-blue text-white w-full py-2 rounded-full text-xs font-bold hover:bg-blue-600 transition flex items-center justify-center gap-2"><i class="fas fa-download"></i> Save</a>
+                <div class="min-w-[120px] w-[120px] md:min-w-[160px] md:w-[160px] snap-center group relative rounded-lg overflow-hidden shadow-md aspect-[2/3] flex-shrink-0 transition-transform duration-300 hover:scale-105 bg-gray-100">
+                    
+                    <img src="${p.file}" class="w-full h-full object-cover">
+                    
+                    <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center p-2 text-center">
+                        
+                        <div class="flex flex-col gap-2 w-full items-center transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                            <button onclick="openLightbox('${p.file}')" class="bg-white text-gray-900 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-200" title="View">
+                                <i class="fas fa-eye text-xs"></i>
+                            </button>
+
+                            <a href="${p.file}" download target="_blank" class="bg-wiper-blue text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-blue-600">
+                                <i class="fas fa-download text-xs"></i>
+                            </a>
                         </div>
                     </div>
                 </div>`;
