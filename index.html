@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+
+    
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -25,13 +27,36 @@
             }
         }
     </script>
-    <style>
+   <style>
+        /* 1. Glass Effect (Navbar) */
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
         .dark .glass { background: rgba(17, 24, 39, 0.95); }
+
+        /* 2. Scroll Reveal Animation */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* 3. Hide Scrollbar (for Gallery) */
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* 4. INFINITE BELT SCROLL (FIXED) */
+        .marquee-track {
+            display: flex;
+            width: max-content; /* THIS is the secret sauce that fixes the jump */
+            animation: scroll 20s linear infinite;
+        }
+        
+        /* The Math: Slide exactly -50% (halfway) so the duplicate set takes over seamlessly */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Pause when hovering */
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 pb-20">
@@ -151,28 +176,63 @@
         </div>
     </section>
 
-    <section class="py-12 bg-gray-50 dark:bg-gray-800/50 border-t border-b border-gray-200 dark:border-gray-700 overflow-hidden reveal">
-        <div class="max-w-7xl mx-auto px-4 mb-8 text-center"><h3 class="text-lg font-serif font-bold text-gray-400 uppercase tracking-widest">United for Progress</h3></div>
-        <div class="relative flex overflow-x-hidden group">
-            <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-gray-50 dark:from-gray-900 to-transparent z-10"></div>
-            <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-gray-50 dark:from-gray-900 to-transparent z-10"></div>
-            <div class="animate-marquee flex gap-16 items-start whitespace-nowrap px-4">
-                <div class="flex flex-col items-center gap-3 group/item min-w-[120px]">
-                    <div class="p-1 rounded-full border-2 border-gray-200 dark:border-gray-700 group-hover/item:border-wiper-blue transition">
-                        <img src="images/governor.jpg" alt="Gov" class="w-20 h-20 rounded-full object-cover grayscale group-hover/item:grayscale-0 transition duration-500" onerror="this.src='https://via.placeholder.com/80'">
+  <section class="py-12 bg-gray-50 dark:bg-gray-800/50 border-t border-b border-gray-200 dark:border-gray-700 overflow-hidden reveal">
+        <div class="max-w-7xl mx-auto px-4 mb-8 text-center">
+            <h3 class="text-lg font-serif font-bold text-gray-400 uppercase tracking-widest">United for Progress</h3>
+        </div>
+        
+        <div class="relative w-full overflow-hidden group">
+            <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-gray-50 dark:from-gray-900 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-gray-50 dark:from-gray-900 to-transparent z-10 pointer-events-none"></div>
+            
+            <div class="marquee-track">
+                
+                <div class="flex flex-col items-center gap-3 px-12 min-w-[150px]">
+                    <div class="p-1 rounded-full border-2 border-gray-200 dark:border-gray-700">
+                        <img src="images/governor.jpg" alt="Gov" class="w-20 h-20 rounded-full object-cover grayscale hover:grayscale-0 transition duration-500" onerror="this.src='https://via.placeholder.com/80'">
                     </div>
                     <div class="text-center"><h4 class="text-sm font-bold dark:text-gray-200">H.E. Wavinya Ndeti</h4><span class="text-xs text-wiper-blue font-semibold uppercase">Governor</span></div>
                 </div>
-                <div class="flex flex-col items-center gap-3 group/item min-w-[120px]">
-                    <div class="p-1 rounded-full border-2 border-gray-200 dark:border-gray-700 group-hover/item:border-wiper-blue transition">
-                        <img src="images/partner-1.png" alt="Party" class="w-20 h-20 rounded-full object-contain p-2 bg-white grayscale group-hover/item:grayscale-0 transition duration-500" onerror="this.src='https://via.placeholder.com/80'">
+
+                <div class="flex flex-col items-center gap-3 px-12 min-w-[150px]">
+                    <div class="p-1 rounded-full border-2 border-gray-200 dark:border-gray-700">
+                        <img src="images/partner-1.png" alt="Party" class="w-20 h-20 rounded-full object-contain p-2 bg-white grayscale hover:grayscale-0 transition duration-500" onerror="this.src='https://via.placeholder.com/80'">
                     </div>
-                    <div class="text-center"><h4 class="text-sm font-bold dark:text-gray-200">Wiper Party</h4><span class="text-xs text-wiper-blue font-semibold uppercase">Party</span></div>
+                    <div class="text-center"><h4 class="text-sm font-bold dark:text-gray-200">Wiper Party</h4><span class="text-xs text-wiper-blue font-semibold uppercase">The Movement</span></div>
                 </div>
+
+                <div class="flex flex-col items-center gap-3 px-12 min-w-[150px]">
+                    <div class="p-1 rounded-full border-2 border-gray-200 dark:border-gray-700">
+                        <img src="images/senator.jpg" alt="Sen" class="w-20 h-20 rounded-full object-cover grayscale hover:grayscale-0 transition duration-500" onerror="this.src='https://via.placeholder.com/80'">
+                    </div>
+                    <div class="text-center"><h4 class="text-sm font-bold dark:text-gray-200">Agnes Kavindu</h4><span class="text-xs text-wiper-blue font-semibold uppercase">Senator</span></div>
+                </div>
+
+
+                <div class="flex flex-col items-center gap-3 px-12 min-w-[150px]">
+                    <div class="p-1 rounded-full border-2 border-gray-200 dark:border-gray-700">
+                        <img src="images/governor.jpg" alt="Gov" class="w-20 h-20 rounded-full object-cover grayscale hover:grayscale-0 transition duration-500" onerror="this.src='https://via.placeholder.com/80'">
+                    </div>
+                    <div class="text-center"><h4 class="text-sm font-bold dark:text-gray-200">H.E. Wavinya Ndeti</h4><span class="text-xs text-wiper-blue font-semibold uppercase">Governor</span></div>
+                </div>
+
+                <div class="flex flex-col items-center gap-3 px-12 min-w-[150px]">
+                    <div class="p-1 rounded-full border-2 border-gray-200 dark:border-gray-700">
+                        <img src="images/partner-1.png" alt="Party" class="w-20 h-20 rounded-full object-contain p-2 bg-white grayscale hover:grayscale-0 transition duration-500" onerror="this.src='https://via.placeholder.com/80'">
+                    </div>
+                    <div class="text-center"><h4 class="text-sm font-bold dark:text-gray-200">Wiper Party</h4><span class="text-xs text-wiper-blue font-semibold uppercase">The Movement</span></div>
+                </div>
+
+                <div class="flex flex-col items-center gap-3 px-12 min-w-[150px]">
+                    <div class="p-1 rounded-full border-2 border-gray-200 dark:border-gray-700">
+                        <img src="images/senator.jpg" alt="Sen" class="w-20 h-20 rounded-full object-cover grayscale hover:grayscale-0 transition duration-500" onerror="this.src='https://via.placeholder.com/80'">
+                    </div>
+                    <div class="text-center"><h4 class="text-sm font-bold dark:text-gray-200">Agnes Kavindu</h4><span class="text-xs text-wiper-blue font-semibold uppercase">Senator</span></div>
+                </div>
+
             </div>
         </div>
     </section>
-
     <section id="news" class="py-20 bg-gray-50 dark:bg-gray-800 reveal">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-12"><h2 class="text-3xl font-serif font-bold dark:text-white">Muthwani Live</h2></div>
@@ -300,14 +360,14 @@
         ];
 
         const pastNews = [
-            { image: "images/news-1.jpg", category: "Development", date: "Dec 20", title: "Water Project Launch", desc: "Commissioning new boreholes for clean water access." },
-            { image: "images/news-2.jpg", category: "Education", date: "Dec 15", title: "Bursary Distribution", desc: "Supporting 200 students with school fees." }
+            { image: "images/hero.jpg", category: "Development", date: "Dec 20", title: "Water Project Launch", desc: "Commissioning new boreholes for clean water access." },
+            { image: "images/hero.jpg", category: "Education", date: "Dec 15", title: "Bursary Distribution", desc: "Supporting 200 students with school fees." }
         ];
 
         const posters = [
-            { title: "Official Portrait", file: "images/poster-1.jpg" },
-            { title: "Vote Anthony", file: "images/poster-2.jpg" },
-            { title: "Rally Invite", file: "images/poster-3.jpg" }
+            { title: "Official Portrait", file: "images/hero.jpg" },
+            { title: "Vote Anthony", file: "images/hero.jpg" },
+            { title: "Rally Invite", file: "images/hero.jpg" }
         ];
 
         // 2. SYSTEM LOGIC
