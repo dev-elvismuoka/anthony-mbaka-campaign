@@ -233,24 +233,41 @@
             </div>
         </div>
     </section>
-    <section id="news" class="py-20 bg-gray-50 dark:bg-gray-800 reveal">
+    <section id="news" class="py-20 bg-gray-50 dark:bg-gray-800 relative reveal">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12"><h2 class="text-3xl font-serif font-bold dark:text-white">Muthwani Live</h2></div>
+            
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 dark:text-white">Muthwani Updates</h2>
+                <div class="w-20 h-1 bg-wiper-blue mx-auto rounded-full"></div>
+            </div>
+
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
                 <div class="lg:col-span-1">
-                    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 border-t-4 border-red-500 sticky top-24">
-                        <div class="flex items-center gap-2 mb-6"><span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span></span><h3 class="text-xl font-bold dark:text-white">Upcoming Events</h3></div>
-                        <div id="upcoming-container" class="space-y-6"></div>
+                    <div class="bg-wiper-blue text-white rounded-xl shadow-lg overflow-hidden h-full flex flex-col">
+                        <div class="bg-blue-900/50 p-6 border-b border-blue-500/30">
+                            <h3 class="font-bold text-xl flex items-center gap-2">
+                                <i class="far fa-calendar-alt text-wiper-gold"></i> Upcoming Events
+                            </h3>
+                        </div>
+                        
+                        <div id="upcoming-container" class="p-6 space-y-6 overflow-y-auto max-h-[400px]">
+                            </div>
                     </div>
                 </div>
-                <div class="lg:col-span-2">
-                    <h3 class="text-xl font-bold mb-6 dark:text-white"><i class="fas fa-newspaper text-gray-400 mr-2"></i> Recent Activities</h3>
-                    <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+
+                <div class="lg:col-span-2 flex flex-col justify-center">
+                    <div id="news-container" class="flex overflow-x-auto gap-5 pb-6 snap-x snap-mandatory scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
+                        </div>
+                    
+                    <div class="text-right text-gray-400 text-xs animate-pulse pr-4">
+                        <i class="fas fa-chevron-left"></i> Swipe for more stories <i class="fas fa-chevron-right"></i>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
-
     <section id="gallery" class="py-20 bg-white dark:bg-gray-900 reveal">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-10 dark:text-white">Muthwani Ward Villages</h2>
@@ -364,16 +381,7 @@
         // 1. DATA CONFIGURATION
         const villages = ["Joska Market", "Utawala Githunguri", "Utawala Airways", "Katani Road", "Ng'alalya", "Mayland", "Muthwani", "Kamulu", "Misuuni", "Ivovoani", "Kavilila", "Seme", "Ngelani", "Ivalini", "Malaa SDA", "Ndovoini", "Kwa Kalusya", "Nzoiani", "Mitatini", "Thwake" ];
         
-        const upcomingEvents = [
-            { date: "Jan 12", title: "Town Hall Meeting", location: "Joska Market", time: "10:00 AM" },
-            { date: "Jan 15", title: "Youth Soccer Finals", location: "Muthwani Pri. School", time: "2:00 PM" }
-        ];
-
-        const pastNews = [
-            { image: "images/hero.jpg", category: "Development", date: "Dec 20", title: "Water Project Launch", desc: "Commissioning new boreholes for clean water access." },
-            { image: "images/hero.jpg", category: "Education", date: "Dec 15", title: "Bursary Distribution", desc: "Supporting 200 students with school fees." }
-        ];
-
+        
         const posters = [
             { title: "Official Portrait", file: "images/hero.jpg" },
             { title: "Vote Anthony", file: "images/hero.jpg" },
@@ -383,12 +391,97 @@
         // 2. SYSTEM LOGIC
         
         // News & Events
-        const upContainer = document.getElementById('upcoming-container');
-        if(upContainer) upcomingEvents.forEach(e => upContainer.innerHTML += `<div class="border-l-4 border-gray-200 pl-4 py-1 hover:border-wiper-blue transition"><p class="text-xs font-bold text-red-500 uppercase">${e.date} • ${e.time}</p><h4 class="font-bold dark:text-gray-200">${e.title}</h4><p class="text-sm text-gray-500">${e.location}</p></div>`);
-        
-        const newsCont = document.getElementById('news-container');
-        if(newsCont) pastNews.forEach(n => newsCont.innerHTML += `<article class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-xl transition group"><div class="h-48 overflow-hidden"><img src="${n.image}" class="w-full h-full object-cover group-hover:scale-105 transition" onerror="this.src='https://via.placeholder.com/400'"></div><div class="p-5"><div class="flex justify-between mb-2"><span class="text-xs font-bold text-wiper-blue bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded">${n.category}</span><span class="text-xs text-gray-400">${n.date}</span></div><h3 class="font-bold text-lg mb-2 dark:text-white">${n.title}</h3><p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-3">${n.desc}</p></div></article>`);
+    // ==========================================
+        // ==========================================
+        //       6. NEWS ROOM (Clean & Scrollable)
+        // ==========================================
 
+        // LIST 1: UPCOMING (Just text)
+        const upcomingEvents = [
+            { date: "JAN 15", title: "Town Hall Meeting", location: "Muthwani Social Hall", time: "10:00 AM" },
+            { date: "FEB 02", title: "Voter Registration", location: "Joska Market Centre", time: "All Day" },
+            { date: "FEB 20", title: "Youth Fund Workshop", location: "St. Mary's Hall", time: "2:00 PM" }
+        ];
+
+        // LIST 2: NEWS (Unlimited Items)
+        const pastNews = [
+            {
+                image: "images/hero.jpg",
+                category: "Development",
+                date: "Dec 20, 2025",
+                title: "Water Project Done",
+                desc: "Over 500 households in Ng'alalya now have access to clean piped water."
+            },
+            {
+                image: "images/hero.jpg",
+                category: "Education",
+                date: "Dec 15, 2025",
+                title: "Bursary Given",
+                desc: "Ensuring every child in Muthwani stays in school. Funds disbursed to 200 students."
+            },
+            {
+                image: "images/hero.jpg",
+                category: "Sports",
+                date: "Dec 10, 2025",
+                title: "Muthwani Cup",
+                desc: "A thrilling match at the stadium as our local youth showcased their talent."
+            },
+            {
+                image: "images/hero.jpg",
+                category: "Roads",
+                date: "Dec 05, 2025",
+                title: "Road Grading",
+                desc: "Opening up the ward for business with new access roads in the eastern sector."
+            },
+             // Add as many as you want here...
+        ];
+
+        // --- BUILDER: UPCOMING ---
+        const upcomingCont = document.getElementById('upcoming-container');
+        if(upcomingCont) {
+            upcomingEvents.forEach(e => {
+                upcomingCont.innerHTML += `
+                <div class="flex gap-4 items-start group">
+                    <div class="bg-white/10 rounded-lg p-2 text-center min-w-[60px] border border-white/20">
+                        <span class="block text-xs font-bold opacity-70">${e.date.split(' ')[0]}</span>
+                        <span class="block text-lg font-bold leading-none">${e.date.split(' ')[1]}</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg leading-tight mb-1 text-white">${e.title}</h4>
+                        <p class="text-sm text-blue-200 flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-xs"></i> ${e.location}
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full h-px bg-blue-500/30 last:hidden"></div>`; 
+            });
+        }
+
+        // --- BUILDER: NEWS (Sideways Scroll) ---
+        const newsCont = document.getElementById('news-container');
+        if(newsCont) {
+            pastNews.forEach(n => {
+                newsCont.innerHTML += `
+                <article class="min-w-[280px] w-[280px] md:min-w-[320px] md:w-[320px] bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow border border-gray-100 dark:border-gray-700 snap-center flex flex-col h-full flex-shrink-0">
+                    
+                    <div class="h-40 overflow-hidden shrink-0 relative cursor-pointer" onclick="openLightbox('${n.image}')">
+                        <img src="${n.image}" alt="${n.title}" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                        <div class="absolute top-2 left-2 bg-wiper-blue text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wide">
+                            ${n.category}
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 flex flex-col flex-grow">
+                        <div class="text-xs text-gray-400 mb-2 flex items-center gap-1">
+                            <i class="far fa-clock"></i> ${n.date}
+                        </div>
+                        
+                        <h3 class="font-bold text-lg mb-2 dark:text-white leading-tight">${n.title}</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-3 mb-4 flex-grow">${n.desc}</p>
+                    </div>
+                </article>`;
+            });
+        }
         // Posters (Grid)
         // --- BUILD POSTERS (Swipe + Lightbox) ---
         // --- BUILD POSTERS (Compact Thumbnail Mode) ---
