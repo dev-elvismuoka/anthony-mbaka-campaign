@@ -76,20 +76,40 @@
                     <a href="#about" class="hover:text-wiper-blue transition">About</a>
                     <a href="#manifesto" class="hover:text-wiper-blue transition">Manifesto</a>
                     <a href="#news" class="hover:text-wiper-blue transition">News</a>
+                    <a href="#resources" class="text-gray-700 dark:text-gray-200 hover:text-wiper-blue font-medium transition">Downloads</a>
                     <a href="#gallery" class="hover:text-wiper-blue transition">Gallery</a>
                     <button onclick="toggleTheme()" class="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full"><i id="theme-icon" class="fas fa-moon"></i></button>
                     <a href="#donate" class="bg-wiper-blue text-white px-6 py-2 rounded-full font-bold hover:bg-wiper-dark transition shadow-lg shadow-blue-500/30">Join Us</a>
+                    
+                    
                 </div>
+
+                <button id="mobile-menu-btn" class="md:hidden ml-4 text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+
             </div>
         </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white shadow-xl border-t border-gray-100 z-50">
+    <div class="flex flex-col px-4 py-4 space-y-2">
+        <a href="#home" class="block py-2 text-gray-600 font-bold border-b border-gray-100">Home</a>
+        <a href="#about" class="block py-2 text-gray-600 font-bold border-b border-gray-100">About</a>
+        <a href="#manifesto" class="block py-2 text-gray-600 font-bold border-b border-gray-100">Manifesto</a>
+        <a href="#resources" class="block py-2 text-gray-600 font-bold border-b border-gray-100">Downloads</a>
+        <a href="#news" class="block py-2 text-gray-600 font-bold border-b border-gray-100">Updates</a>
+        <a href="#contact" class="block py-2 text-wiper-blue font-bold">Join Us</a>
+    </div>
+</div>
+
     </nav>
 
-    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" class="relative h-screen flex items-start md:items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="images/hero.jpg" alt="Anthony Mbaka" class="w-full h-full object-cover object-top">
             <div class="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-transparent dark:from-black/90"></div>
         </div>
-        <div class="relative z-10 max-w-7xl mx-auto px-4 text-white mt-16">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center pt-28 md:pt-0">
             <div class="max-w-2xl">
                 <span class="inline-block bg-wiper-gold text-blue-900 font-bold px-3 py-1 rounded-sm mb-4 text-sm tracking-widest">KAZI SI MANENO</span>
                 <h1 class="text-5xl md:text-7xl font-serif font-bold leading-tight mb-6">
@@ -306,7 +326,7 @@
         </div>
     </section>
 
-    <section class="py-12 bg-gray-50 dark:bg-gray-800 border-y border-gray-200 dark:border-gray-700 reveal">
+    <section id="resources" class="py-12 bg-gray-50 dark:bg-gray-800 border-y border-gray-200 dark:border-gray-700 reveal"></section>
         <div class="max-w-4xl mx-auto px-4">
             
             <div class="text-center mb-8">
@@ -744,6 +764,17 @@
             const el = document.getElementById("countdown");
             if(el) el.innerHTML = `<div class="flex flex-col items-center"><span class="text-wiper-gold">${days}</span><span class="text-[10px] text-gray-400 font-sans">DAYS</span></div><span class="text-gray-500">:</span><div class="flex flex-col items-center"><span class="text-white">${hours}</span><span class="text-[10px] text-gray-400 font-sans">HRS</span></div><span class="text-gray-500">:</span><div class="flex flex-col items-center"><span class="text-white">${mins}</span><span class="text-[10px] text-gray-400 font-sans">MIN</span></div><span class="text-gray-500">:</span><div class="flex flex-col items-center"><span class="text-red-500">${secs}</span><span class="text-[10px] text-gray-400 font-sans">SEC</span></div>`;
         }, 1000);
+
+        // TOGGLE MOBILE MENU
+const btn = document.getElementById('mobile-menu-btn');
+const menu = document.getElementById('mobile-menu');
+
+if(btn && menu) {
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+}
+
     </script>
 </body>
 </html>
