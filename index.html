@@ -135,6 +135,38 @@
     }
 }
 
+/* --- MOBILE HEADER FIX --- */
+    @media (max-width: 768px) {
+        /* Force body and html to stop horizontal scrolling */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Force Header to fit inside the screen */
+        header {
+            width: 100% !important;
+            max-width: 100vw !important;
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+            box-sizing: border-box; /* Includes padding in width math */
+        }
+
+        /* Adjust the Navigation container */
+        .navbar-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between; /* Pushes Logo Left, Menu Right */
+            align-items: center;
+        }
+
+        /* Ensure the Menu Icon (Hamburger) is visible and inside the screen */
+        .menu-toggle, .hamburger, .fa-bars {
+            display: block;
+            margin-right: 0 !important; /* Resets any margin pushing it out */
+        }
+    }
+
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 pb-20">
@@ -240,7 +272,7 @@
                         <div class="h-12 w-1 bg-wiper-blue"></div>
                         <div>
                             <p class="font-bold text-xl text-gray-900 dark:text-white">Anthony Davids Mbaka</p>
-                            <p class="text-sm text-gray-500">MCA Candidate 2027</p>
+                            <p class="text-sm text-gray-500">Muthwani Ward MCA Candidate 2027</p>
                         </div>
                     </div>
                 </div>
@@ -848,8 +880,33 @@
         function openLightbox(src) { lightboxImg.src = src; lightbox.classList.remove('hidden'); setTimeout(()=> { lightboxImg.classList.remove('scale-95'); lightboxImg.classList.add('scale-100'); }, 10); }
         function closeLightbox() { lightbox.classList.add('hidden'); lightboxImg.classList.remove('scale-100'); lightboxImg.classList.add('scale-95'); }
 
-        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); }); }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Add class when in view (plays animation)
+            entry.target.classList.add('active');
+        } else {
+            // Remove class when out of view (resets animation)
+            entry.target.classList.remove('active');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
         const words = ["Delivers.", "Listens.", "Empowers.", "Builds."];
         let i = 0, timer;
