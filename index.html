@@ -305,6 +305,24 @@
             </div>
         </div>
     </section>
+
+    <section class="py-12 bg-gray-50 dark:bg-gray-800 border-y border-gray-200 dark:border-gray-700 reveal">
+        <div class="max-w-4xl mx-auto px-4">
+            
+            <div class="text-center mb-8">
+                <h3 class="text-xl font-bold text-gray-700 dark:text-gray-200 flex items-center justify-center gap-2">
+                    <i class="fas fa-book-reader text-wiper-blue"></i>
+                    DOWNLOADS
+                </h3>
+                <p class="text-sm text-gray-500 mt-1">Download official documents for your review.</p>
+            </div>
+
+            <div id="resources-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                </div>
+
+        </div>
+    </section>
+
     <section id="gallery" class="py-20 bg-white dark:bg-gray-900 reveal">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-10 dark:text-white">Muthwani Ward Villages</h2>
@@ -372,7 +390,7 @@
             <h2 class="text-2xl font-bold text-white mb-6">Anthony Davids Mbaka</h2>
             <div class="flex justify-center gap-6 mb-8">
                 <a href="https://www.fb.com/l/6lp1kJRRR" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-black hover:text-white transition"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.tiktok.com/@anthonydavidsmbak" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-black hover:text-white transition"><i class="fab fa-tiktok"></i></a>
                 <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
             </div>
             <p class="text-sm">&copy; 2027 Anthony Mbaka Campaign. All rights reserved.</p>
@@ -415,6 +433,35 @@
     </div>
 
     <script>
+
+        // --- G. RESOURCES / PUBLICATIONS ---
+        const documents = [
+            {
+                title: "The Muthwani Manifesto 2027",
+                desc: "The full strategic plan for infrastructure and economy.",
+                size: "PDF • 2.4 MB",
+                file: "downloads/manifesto.pdf" // You need to create this file
+            },
+            {
+                title: "Constitution of Kenya (2010)",
+                desc: "Know your rights. The supreme law of the Republic.",
+                size: "PDF • 4.1 MB",
+                file: "downloads/constitution.pdf" 
+            },
+            {
+                title: "Ward Development Fund Bill",
+                desc: "Draft proposal for equitable fund distribution.",
+                size: "PDF • 1.2 MB",
+                file: "downloads/bill_draft.pdf" 
+            },
+            {
+                title: "Muthwani Youth Data Report",
+                desc: "Analysis of employment and skills gaps in our ward.",
+                size: "PDF • 800 KB",
+                file: "downloads/youth_report.pdf" 
+            }
+        ];
+
         // 1. DATA CONFIGURATION
         const villages = ["Joska Market", "Utawala Githunguri", "Utawala Airways", "Katani Road", "Ng'alalya", "Mayland", "Muthwani", "Kamulu", "Misuuni", "Ivovoani", "Kavilila", "Seme", "Ngelani", "Ivalini", "Malaa SDA", "Ndovoini", "Kwa Kalusya", "Nzoiani", "Mitatini", "Thwake" ];
         
@@ -546,6 +593,31 @@
             });
         }
 
+
+        // --- BUILD RESOURCES SECTION ---
+        const resCont = document.getElementById('resources-container');
+        if(resCont) {
+            documents.forEach(doc => {
+                resCont.innerHTML += `
+                <a href="${doc.file}" download target="_blank" class="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-4 rounded-lg flex items-center gap-4 hover:shadow-md hover:border-wiper-blue transition duration-300">
+                    
+                    <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0 group-hover:bg-red-100 transition">
+                        <i class="fas fa-file-pdf text-red-500 text-xl"></i>
+                    </div>
+                    
+                    <div class="flex-grow">
+                        <h4 class="font-bold text-gray-800 dark:text-gray-200 text-sm group-hover:text-wiper-blue transition">${doc.title}</h4>
+                        <p class="text-xs text-gray-500 line-clamp-1">${doc.desc}</p>
+                        <p class="text-[10px] text-gray-400 mt-1 uppercase tracking-wide font-bold">${doc.size}</p>
+                    </div>
+
+                    <div class="text-gray-300 group-hover:text-wiper-blue transform group-hover:translate-x-1 transition">
+                        <i class="fas fa-download"></i>
+                    </div>
+                </a>`;
+            });
+        }
+
         // Gallery
         const villageContainer = document.getElementById('village-buttons');
         const galleryGrid = document.getElementById('gallery-grid');
@@ -560,7 +632,7 @@
         }
         function loadVillageImages(villageName) {
             galleryGrid.innerHTML = '';
-            const maxPhotos = 50; 
+            const maxPhotos = 100; 
             for(let i=1; i<=maxPhotos; i++) {
                 const div = document.createElement('div');
                 div.className = "hidden min-w-[280px] md:min-w-[350px] snap-center relative group overflow-hidden rounded-lg shadow-md h-64 bg-gray-200 flex-shrink-0";
