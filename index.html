@@ -57,6 +57,84 @@
         .marquee-track:hover {
             animation-play-state: paused;
         }
+
+        /* Container for the whole section */
+.vmv-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Light grey background to separate it from Bio */
+}
+
+.vmv-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px; /* Space between the cards */
+    flex-wrap: wrap; /* Allows stacking on small screens */
+}
+
+/* Individual Card Styling */
+.vmv-card {
+    background: #ffffff;
+    flex: 1; /* Makes all 3 cards equal width */
+    min-width: 300px; /* Prevents them from getting too squashed */
+    padding: 40px 30px;
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Soft shadow for "pop" */
+    text-align: center;
+    border-top: 5px solid #0056b3; /* Blue top border for style */
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect: lifts up slightly when you touch it */
+.vmv-card:hover {
+    transform: translateY(-5px);
+}
+
+.vmv-card h3 {
+    color: #0056b3; /* Campaign Blue */
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.vmv-card p {
+    color: #444;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Styling the list in the 3rd card */
+.values-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.values-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    color: #444;
+    font-weight: 500;
+}
+
+.values-list li:last-child {
+    border-bottom: none;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .vmv-container {
+        flex-direction: column; /* Stacks them vertically */
+    }
+    
+    .vmv-card {
+        margin-bottom: 20px;
+    }
+}
+
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 pb-20">
@@ -170,6 +248,33 @@
             </div>
         </div>
     </section>
+
+    <section class="vmv-section">
+    <div class="vmv-container">
+        
+        <div class="vmv-card">
+            <h3>Our Vision</h3>
+            <p>To transform Muthwani Ward into a thriving, equitable, and empowered community through accountable leadership, sustainable infrastructure, and inclusive economic growth.</p>
+        </div>
+
+        <div class="vmv-card">
+            <h3>Our Mission</h3>
+            <p>To deliver responsive, transparent, and result-driven leadership that listens, serves, and acts—unlocking opportunities for men, women, youth, and persons abled differently through participatory development and measurable governance.</p>
+        </div>
+
+        <div class="vmv-card">
+            <h3>Core Values</h3>
+            <ul class="values-list">
+                <li>Integrity</li>
+                <li>Equity & Inclusion</li>
+                <li>Action & Delivery</li>
+                <li>Community Empowerment</li>
+                <li>Transparency & Accountability</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
 
     <section id="manifesto" class="py-20 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
