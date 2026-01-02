@@ -165,7 +165,224 @@
             display: block;
             margin-right: 0 !important; /* Resets any margin pushing it out */
         }
+
+        /* VILLAGE INFO CARD STYLES */
+.village-info-card {
+    background: #f8f9fa;
+    border-left: 5px solid #0056b3; /* Campaign Blue */
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Voters Count Section */
+.voters-count {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.voters-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0056b3;
+}
+
+.voters-label {
+    font-size: 1rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* Facilities Grid - 3 Columns on Desktop */
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.facility-column h4 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 12px;
+    font-weight: 700;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.facility-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.facility-list li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: #444;
+    position: relative;
+    padding-left: 15px;
+}
+
+/* Bullet points */
+.facility-list li::before {
+    content: "•";
+    color: #0056b3;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* BADGES for Status */
+.badge-unavailable {
+    background: #ffebee;
+    color: #c62828;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid #ffcdd2;
+}
+
+.badge-available {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid #c8e6c9;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .voters-count {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
     }
+    
+    .facilities-grid {
+        grid-template-columns: 1fr; /* Stack vertically on phone */
+    }
+}
+    }
+
+    /* VILLAGE INFO CARD STYLES */
+.village-info-card {
+    background: #f8f9fa;
+    border-left: 5px solid #0056b3; /* Campaign Blue */
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Voters Count Section */
+.voters-count {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.voters-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0056b3;
+}
+
+.voters-label {
+    font-size: 1rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* Facilities Grid - 3 Columns on Desktop */
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.facility-column h4 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 12px;
+    font-weight: 700;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.facility-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.facility-list li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: #444;
+    position: relative;
+    padding-left: 15px;
+}
+
+/* Bullet points */
+.facility-list li::before {
+    content: "•";
+    color: #0056b3;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* BADGES for Status */
+.badge-unavailable {
+    background: #ffebee;
+    color: #c62828;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid #ffcdd2;
+}
+
+.badge-available {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid #c8e6c9;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .voters-count {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .facilities-grid {
+        grid-template-columns: 1fr; /* Stack vertically on phone */
+    }
+}
+
 
     </style>
 </head>
@@ -484,8 +701,10 @@
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-10 dark:text-white">Muthwani Ward Villages</h2>
             <div class="flex flex-wrap justify-center gap-2 mb-10" id="village-buttons"></div>
+            <div id="villageInfoContainer"></div>
+            <div id="galleryGrid" class="..."></div>
             <div id="gallery-grid" class="flex overflow-x-auto gap-4 py-6 px-2 snap-x snap-mandatory scrollbar-hide" style="scrollbar-width: none;">
-                <div class="min-w-full text-center py-10 text-gray-400 border-2 border-dashed border-gray-200 rounded-xl"><i class="fas fa-images text-4xl mb-3"></i><p>Select a village above to swipe through photos.</p></div>
+            <div class="min-w-full text-center py-10 text-gray-400 border-2 border-dashed border-gray-200 rounded-xl"><i class="fas fa-images text-4xl mb-3"></i><p>Select a village above to swipe through photos.</p></div>
             </div>
             <p class="text-center text-gray-400 text-xs mt-2 animate-pulse"><i class="fas fa-chevron-left"></i> Swipe to see photos <i class="fas fa-chevron-right"></i></p>
         </div>
@@ -622,6 +841,121 @@
         // 1. DATA CONFIGURATION
         const villages = ["Joska Market", "Utawala Githunguri", "Utawala Airways", "Katani Road", "Ng'alalya", "Mayland", "Muthwani", "Kamulu", "Misuuni", "Ivovoani", "Kavilila", "Seme", "Ngelani", "Ivalini", "Malaa SDA", "Ndovoini", "Kwa Kalusya", "Nzoiani", "Mitatini", "Thwake" ];
         
+        const villageData = {
+    "Joska Market": {
+        voters: "4,532",
+        polling: ["Joska Market"],
+        schools_pri: ["St Francis Of Assis PS", "Muthwani PS"],
+        schools_sec: ["Muthwani Secondary"],
+        health: ["Joska Royal Care", "Cleverheal Cottage", "Nearest: Athi River HC"]
+    },
+    "Utawala Githunguri": {
+        voters: "6,978",
+        polling: ["Githunguri Jetview Primary"],
+        schools_pri: ["Githunguri Jetview PS"],
+        schools_sec: ["Airways Sec (Nearby)", "Muthwani Sec (Nearby)"],
+        health: ["Unavailable (Nearest: Muthwani CHU)"]
+    },
+    "Utawala Airways": {
+        voters: "827",
+        polling: ["Airways Secondary School"],
+        schools_pri: ["Githunguri Jetview PS (Nearby)", "Muthwani PS (Nearby)"],
+        schools_sec: ["Airways Secondary"],
+        health: ["Unavailable (Nearest: Athi River HC)"]
+    },
+    "Katani Road": {
+        voters: "3,238",
+        polling: ["Katani Primary School"],
+        schools_pri: ["Katani Primary School"],
+        schools_sec: ["Airways Secondary (Nearby)"],
+        health: ["Katani Hospital", "Athi River Health Centre"]
+    },
+    "Ng'alalya": {
+        voters: "1,446",
+        polling: ["Nga’lalya Primary School"],
+        schools_pri: ["Nga’lalya Primary School"],
+        schools_sec: ["Nga’lalya Secondary"],
+        health: ["Unavailable (Nearest: Athi River HC)"]
+    },
+    "Muthwani": {
+        voters: "1,165",
+        polling: ["Muthwani Primary School"],
+        schools_pri: ["Muthwani Primary School"],
+        schools_sec: ["Muthwani Secondary School"],
+        health: ["Muthwani Community Health Unit", "Katani Hospital (Nearby)"]
+    },
+    "Kamulu": {
+        voters: "856",
+        polling: ["Kamulu D.E.B Primary"],
+        schools_pri: ["Kamulu D.E.B Primary"],
+        schools_sec: ["Unavailable (Nearest: Muthwani/Airways)"],
+        health: ["Unavailable (Nearest: Athi River HC)"]
+    },
+    "Ivovoani": {
+        voters: "795",
+        polling: ["Ivovoani Primary School"],
+        schools_pri: ["Ivovoani Primary School"],
+        schools_sec: ["Unavailable (Nearest: Muthwani/Ndovoini)"],
+        health: ["Unavailable (Nearest: Athi River HC)"]
+    },
+    "Seme": {
+        voters: "478",
+        polling: ["Seme Primary School"],
+        schools_pri: ["Seme Primary School"],
+        schools_sec: ["Unavailable (Nearest: Muthwani/Ndovoini)"],
+        health: ["Unavailable (Nearest: Athi River HC)"]
+    },
+    "Ngelani": {
+        voters: "472",
+        polling: ["Ngelani Ranch Primary"],
+        schools_pri: ["Ngelani Ranch Primary"],
+        schools_sec: ["Patrick Makau Ng’elani Sec"],
+        health: ["Unavailable (Nearest: Athi River HC)"]
+    },
+    "Ivalini": {
+        voters: "210",
+        polling: ["Ivalini D.E.B Primary"],
+        schools_pri: ["Ivalini D.E.B Primary"],
+        schools_sec: ["Unavailable"],
+        health: ["Unavailable (Nearest: Athi River HC)"]
+    },
+    "Malaa SDA": {
+        voters: "201",
+        polling: ["Mitatini Primary School"],
+        schools_pri: ["Mitatini Primary School"],
+        schools_sec: ["Unavailable"],
+        health: ["Unavailable (Nearest: Athi River HC)"]
+    },
+    "Ndovoini": {
+        voters: "826",
+        polling: ["Ndovoini Primary School"],
+        schools_pri: ["Ndovoini Primary School"],
+        schools_sec: ["Ndovoini Secondary (Likely)"],
+        health: ["Unavailable (Nearest: Athi River HC)"]
+    },
+    "Kwa Kalusya": {
+        voters: "492",
+        polling: ["Kwa Kalusya Primary"],
+        schools_pri: ["Kwa Kalusya Primary School"],
+        schools_sec: ["Unavailable"],
+        health: ["Unavailable (Nearest: Athi River HC)"]
+    },
+    "Mayland": {
+        voters: "Pending Gazettement",
+        polling: ["Pending Verification"],
+        schools_pri: ["Pending Verification"],
+        schools_sec: ["Pending Verification"],
+        health: ["Unavailable"]
+    },
+    // Fallback for any missing villages
+    "default": {
+        voters: "Data Updating...",
+        polling: [],
+        schools_pri: [],
+        schools_sec: [],
+        health: []
+    }
+};
         
         const posters = [
             { title: "Official Portrait", file: "images/poster-1.jpg" },
@@ -798,23 +1132,84 @@
                 villageContainer.appendChild(btn);
             });
         }
+        
         function loadVillageImages(villageName) {
-            galleryGrid.innerHTML = '';
-            const maxPhotos = 100; 
-            for(let i=1; i<=maxPhotos; i++) {
-                const div = document.createElement('div');
-                div.className = "hidden min-w-[280px] md:min-w-[350px] snap-center relative group overflow-hidden rounded-lg shadow-md h-64 bg-gray-200 flex-shrink-0";
-                const img = document.createElement('img');
-                img.loading = "lazy";
-                img.src = `images/${villageName}-${i}.jpg`;
-                img.className = "w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer";
-                img.onclick = function() { openLightbox(this.src); };
-                img.onload = function() { div.classList.remove('hidden'); };
-                img.onerror = function() { div.remove(); };
-                div.appendChild(img);
-                galleryGrid.appendChild(div);
-            }
-        }
+    // 1. CLEAR PREVIOUS DATA
+    const infoContainer = document.getElementById('villageInfoContainer');
+    const galleryGrid = document.getElementById('galleryGrid'); // Ensure this ID matches your HTML
+    
+    infoContainer.innerHTML = ''; 
+    galleryGrid.innerHTML = '';
+
+    // 2. GET DATA FOR THIS VILLAGE (OR USE DEFAULT)
+    const data = villageData[villageName] || villageData["default"];
+
+    // 3. GENERATE THE INFO CARD HTML
+    // Helper function to make list items (bullets)
+    const makeList = (items) => items.map(item => {
+        // If the item says "Unavailable", make it red
+        const className = item.includes("Unavailable") ? "badge-unavailable" : "";
+        const style = item.includes("Unavailable") ? "background:#ffebee; color:#c62828; padding:2px 6px; border-radius:4px; font-size:0.8rem;" : "";
+        return `<li style="margin-bottom:5px; ${style}">${item}</li>`;
+    }).join('');
+
+    const infoHTML = `
+        <div class="village-info-card" style="background:#f8f9fa; border-left:5px solid #0056b3; padding:25px; margin-bottom:30px; border-radius:8px;">
+            
+            <div class="voters-count" style="border-bottom:1px solid #ddd; padding-bottom:15px; margin-bottom:15px;">
+                <span style="font-size:1rem; color:#555; font-weight:600; text-transform:uppercase;">Registered Voters:</span>
+                <span style="font-size:2rem; font-weight:800; color:#0056b3; margin-left:10px;">${data.voters}</span>
+            </div>
+
+            <div class="facilities-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px;">
+                
+                <div>
+                    <h4 style="font-weight:700; color:#333; border-bottom:2px solid #ddd; display:inline-block; margin-bottom:10px;">Polling Stations</h4>
+                    <ul style="list-style:none; padding:0; color:#444;">${makeList(data.polling)}</ul>
+                </div>
+
+                <div>
+                    <h4 style="font-weight:700; color:#333; border-bottom:2px solid #ddd; display:inline-block; margin-bottom:10px;">Schools</h4>
+                    <div style="margin-bottom:8px;"><strong>Primary:</strong></div>
+                    <ul style="list-style:none; padding:0; color:#444; margin-bottom:10px;">${makeList(data.schools_pri)}</ul>
+                    <div style="margin-bottom:8px;"><strong>Secondary:</strong></div>
+                    <ul style="list-style:none; padding:0; color:#444;">${makeList(data.schools_sec)}</ul>
+                </div>
+
+                <div>
+                    <h4 style="font-weight:700; color:#333; border-bottom:2px solid #ddd; display:inline-block; margin-bottom:10px;">Health Facilities</h4>
+                    <ul style="list-style:none; padding:0; color:#444;">${makeList(data.health)}</ul>
+                </div>
+
+            </div>
+        </div>
+    `;
+
+    // Inject the HTML
+    infoContainer.innerHTML = infoHTML;
+
+
+    // 4. LOAD THE IMAGES (Your existing code)
+    const maxPhotos = 100; 
+    for(let i=1; i<=maxPhotos; i++) {
+        const div = document.createElement('div');
+        // Kept your exact classes
+        div.className = "hidden min-w-[280px] md:min-w-[350px] snap-center relative group overflow-hidden rounded-lg shadow-md h-64 bg-gray-200 flex-shrink-0";
+        
+        const img = document.createElement('img');
+        img.loading = "lazy";
+        img.src = `images/${villageName}-${i}.jpg`;
+        img.className = "w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer";
+        
+        img.onclick = function() { if(typeof openLightbox === 'function') openLightbox(this.src); };
+        img.onload = function() { div.classList.remove('hidden'); };
+        img.onerror = function() { div.remove(); };
+        
+        div.appendChild(img);
+        galleryGrid.appendChild(div);
+    }
+}
+        
 
         // --- 4. AUDIO PLAYER LOGIC ---
         const songs = [
