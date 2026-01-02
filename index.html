@@ -699,12 +699,15 @@
 
     <section id="gallery" class="py-20 bg-white dark:bg-gray-900 reveal">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-10 dark:text-white">Muthwani Ward Villages</h2>
+            <h2 class="text-3xl font-bold text-center mb-10 dark:text-white">Muthwani Ward Neighbourhoods</h2>
+            <p class="text-center text-wiper-blue dark:text-blue-300 mb-6 font-bold"> Click on your neighbourhood to learn more</p>
+
+   
             <div class="flex flex-wrap justify-center gap-2 mb-10" id="village-buttons"></div>
             <div id="villageInfoContainer"></div>
             <div id="galleryGrid" class="..."></div>
             <div id="gallery-grid" class="flex overflow-x-auto gap-4 py-6 px-2 snap-x snap-mandatory scrollbar-hide" style="scrollbar-width: none;">
-            <div class="min-w-full text-center py-10 text-gray-400 border-2 border-dashed border-gray-200 rounded-xl"><i class="fas fa-images text-4xl mb-3"></i><p>Select a village above to swipe through photos.</p></div>
+            <div class="min-w-full text-center py-10 text-gray-400 border-2 border-dashed border-gray-200 rounded-xl"><i class="fas fa-images text-4xl mb-3"></i><p>Select a neighbourhood above to swipe through photos.</p></div>
             </div>
             <p class="text-center text-gray-400 text-xs mt-2 animate-pulse"><i class="fas fa-chevron-left"></i> Swipe to see photos <i class="fas fa-chevron-right"></i></p>
         </div>
@@ -1014,6 +1017,10 @@
             { title: "Anthony Davids", file: "images/poster-10.jpg" },
             { title: "Leadership That Listens", file: "images/poster-11.jpg" },
             { title: "Finance a winning candidate", file: "images/poster-12.jpg" },
+            { title: "Finance a winning candidate", file: "images/poster-13.jpg" },
+            { title: "Finance a winning candidate", file: "images/poster-14.jpg" },
+            { title: "Finance a winning candidate", file: "images/poster-15.jpg" },
+
 
             
         ];
@@ -1117,7 +1124,7 @@
         // --- BUILD POSTERS (Compact Thumbnail Mode) ---
         const postCont = document.getElementById('posters-container');
         if(postCont) {
-            posters.forEach(p => {
+            posters.reverse().forEach(p => {
                 postCont.innerHTML += `
                 <div class="min-w-[120px] w-[120px] md:min-w-[160px] md:w-[160px] snap-center group relative rounded-lg overflow-hidden shadow-md aspect-[2/3] flex-shrink-0 transition-transform duration-300 hover:scale-105 bg-gray-100">
                     
@@ -1177,41 +1184,41 @@
             });
         }
         
-        function loadVillageImages(villageName) {
+        // --- 3. GALLERY LOGIC (BULLETPROOF VERSION) ---
+function loadVillageImages(villageName) {
     // 1. CLEAR PREVIOUS DATA
     const infoContainer = document.getElementById('villageInfoContainer');
-    const galleryGrid = document.getElementById('galleryGrid'); // Ensure this ID matches your HTML
-    
+    const galleryGrid = document.getElementById('galleryGrid'); 
+
     infoContainer.innerHTML = ''; 
     galleryGrid.innerHTML = '';
+    
+    // Force the grid layout
+    galleryGrid.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8";
 
-    // 2. GET DATA FOR THIS VILLAGE (OR USE DEFAULT)
+    // 2. GET DATA FOR THIS VILLAGE
     const data = villageData[villageName] || villageData["default"];
 
-    // 3. GENERATE THE INFO CARD HTML
-    // Helper function to make list items (bullets)
+    // 3. GENERATE THE INFO CARD
     const makeList = (items) => items.map(item => {
-        // If the item says "Unavailable", make it red
-        const className = item.includes("Unavailable") ? "badge-unavailable" : "";
-        const style = item.includes("Unavailable") ? "background:#ffebee; color:#c62828; padding:2px 6px; border-radius:4px; font-size:0.8rem;" : "";
-        return `<li style="margin-bottom:5px; ${style}">${item}</li>`;
+        const isUnavailable = item.includes("Unavailable");
+        const style = isUnavailable 
+            ? "background:#ffebee; color:#c62828; padding:2px 6px; border-radius:4px; font-size:0.8rem; border:1px solid #ffcdd2;" 
+            : "margin-bottom:5px;";
+        return `<li style="${style}">${item}</li>`;
     }).join('');
 
-    const infoHTML = `
+    infoContainer.innerHTML = `
         <div class="village-info-card" style="background:#f8f9fa; border-left:5px solid #0056b3; padding:25px; margin-bottom:30px; border-radius:8px;">
-            
             <div class="voters-count" style="border-bottom:1px solid #ddd; padding-bottom:15px; margin-bottom:15px;">
                 <span style="font-size:1rem; color:#555; font-weight:600; text-transform:uppercase;">Registered Voters:</span>
                 <span style="font-size:2rem; font-weight:800; color:#0056b3; margin-left:10px;">${data.voters}</span>
             </div>
-
             <div class="facilities-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px;">
-                
                 <div>
                     <h4 style="font-weight:700; color:#333; border-bottom:2px solid #ddd; display:inline-block; margin-bottom:10px;">Polling Stations</h4>
                     <ul style="list-style:none; padding:0; color:#444;">${makeList(data.polling)}</ul>
                 </div>
-
                 <div>
                     <h4 style="font-weight:700; color:#333; border-bottom:2px solid #ddd; display:inline-block; margin-bottom:10px;">Schools</h4>
                     <div style="margin-bottom:8px;"><strong>Primary:</strong></div>
@@ -1219,35 +1226,36 @@
                     <div style="margin-bottom:8px;"><strong>Secondary:</strong></div>
                     <ul style="list-style:none; padding:0; color:#444;">${makeList(data.schools_sec)}</ul>
                 </div>
-
                 <div>
                     <h4 style="font-weight:700; color:#333; border-bottom:2px solid #ddd; display:inline-block; margin-bottom:10px;">Health Facilities</h4>
                     <ul style="list-style:none; padding:0; color:#444;">${makeList(data.health)}</ul>
                 </div>
-
             </div>
         </div>
     `;
 
-    // Inject the HTML
-    infoContainer.innerHTML = infoHTML;
-
-
-    // 4. LOAD THE IMAGES (Your existing code)
-    const maxPhotos = 100; 
+    // 4. LOAD THE IMAGES (Bulletproof Logic)
+    const safeName = villageName.toLowerCase().replace(/ /g, '-').replace(/'/g, '');
+    const maxPhotos = 20; 
+    
     for(let i=1; i<=maxPhotos; i++) {
         const div = document.createElement('div');
-        // Kept your exact classes
-        div.className = "hidden min-w-[280px] md:min-w-[350px] snap-center relative group overflow-hidden rounded-lg shadow-md h-64 bg-gray-200 flex-shrink-0";
+        
+        // ✅ KEY FIX: 'h-64' forces height. No 'hidden' class.
+        div.className = "relative group overflow-hidden rounded-lg shadow-md h-64 bg-gray-200"; 
         
         const img = document.createElement('img');
         img.loading = "lazy";
-        img.src = `images/${villageName}-${i}.jpg`;
         img.className = "w-full h-full object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer";
         
+        // Click to open lightbox
         img.onclick = function() { if(typeof openLightbox === 'function') openLightbox(this.src); };
-        img.onload = function() { div.classList.remove('hidden'); };
+        
+        // If image fails, delete the box
         img.onerror = function() { div.remove(); };
+        
+        // Set Source
+        img.src = `images/${safeName}-${i}.jpg`; 
         
         div.appendChild(img);
         galleryGrid.appendChild(div);
