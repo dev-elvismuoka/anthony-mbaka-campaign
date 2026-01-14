@@ -498,6 +498,99 @@
         </div>
     </section>
 
+    <section id="team" class="py-20 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-16">
+                <span class="text-wiper-gold font-bold tracking-widest uppercase text-sm">The Engine Room</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-wiper-blue mt-2">Meet Our Team</h2>
+                <div class="w-24 h-1 bg-wiper-blue mx-auto rounded-full mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 shadow-lg text-center group hover:-translate-y-2 transition duration-300">
+                    <div class="w-16 h-16 mx-auto bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-wiper-blue mb-6">
+                        <i class="fas fa-chess-king text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 dark:text-white">Campaign Management</h3>
+                    <p class="text-sm text-gray-500 mb-6">Strategy, scheduling, and overall direction.</p>
+                    
+                    <button onclick="toggleTeam('list-management', this)" class="bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-wiper-blue font-bold py-2 px-6 rounded-full text-sm hover:bg-wiper-blue hover:text-white transition shadow-sm">
+                        Tap to See <i class="fas fa-chevron-down ml-2"></i>
+                    </button>
+
+                    <div id="list-management" class="hidden mt-6 text-left space-y-3 bg-white dark:bg-gray-900 p-4 rounded-lg border-l-4 border-wiper-blue shadow-inner transition-all duration-300">
+                        <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-2">
+                            <li class="flex justify-between border-b border-gray-100 dark:border-gray-800 pb-1">
+                                <span class="font-bold">John Doe</span> <span class="text-xs text-gray-400 uppercase tracking-wide">Manager</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 dark:border-gray-800 pb-1">
+                                <span class="font-bold">Jane Smith</span> <span class="text-xs text-gray-400 uppercase tracking-wide">Strategist</span>
+                            </li>
+                            <li class="flex justify-between pb-1">
+                                <span class="font-bold">David Kim</span> <span class="text-xs text-gray-400 uppercase tracking-wide">Treasurer</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 shadow-lg text-center group hover:-translate-y-2 transition duration-300">
+                    <div class="w-16 h-16 mx-auto bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center text-green-600 mb-6">
+                        <i class="fas fa-poll text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 dark:text-white">Votes & Agents</h3>
+                    <p class="text-sm text-gray-500 mb-6">Polling station monitoring and tallying.</p>
+                    
+                    <button onclick="toggleTeam('list-votes', this)" class="bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-green-600 font-bold py-2 px-6 rounded-full text-sm hover:bg-green-600 hover:text-white transition shadow-sm">
+                        Tap to See <i class="fas fa-chevron-down ml-2"></i>
+                    </button>
+
+                    <div id="list-votes" class="hidden mt-6 text-left space-y-3 bg-white dark:bg-gray-900 p-4 rounded-lg border-l-4 border-green-500 shadow-inner transition-all duration-300">
+                        <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-2">
+                            <li class="flex justify-between border-b border-gray-100 dark:border-gray-800 pb-1">
+                                <span class="font-bold">Alice Wambui</span> <span class="text-xs text-gray-400 uppercase tracking-wide">Chief Agent</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 dark:border-gray-800 pb-1">
+                                <span class="font-bold">Peter Ochieng</span> <span class="text-xs text-gray-400 uppercase tracking-wide">Data Lead</span>
+                            </li>
+                            <li class="flex justify-between pb-1">
+                                <span class="font-bold">Sarah Neri</span> <span class="text-xs text-gray-400 uppercase tracking-wide">Logistics</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 shadow-lg text-center group hover:-translate-y-2 transition duration-300">
+                    <div class="w-16 h-16 mx-auto bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center text-wiper-gold mb-6">
+                        <i class="fas fa-users-cog text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 dark:text-white">Interior Team</h3>
+                    <p class="text-sm text-gray-500 mb-6">Ground mobilization and internal affairs.</p>
+                    
+                    <button onclick="toggleTeam('list-interior', this)" class="bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-wiper-gold font-bold py-2 px-6 rounded-full text-sm hover:bg-wiper-gold hover:text-white transition shadow-sm">
+                        Tap to See <i class="fas fa-chevron-down ml-2"></i>
+                    </button>
+
+                    <div id="list-interior" class="hidden mt-6 text-left space-y-3 bg-white dark:bg-gray-900 p-4 rounded-lg border-l-4 border-wiper-gold shadow-inner transition-all duration-300">
+                        <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-2">
+                            <li class="flex justify-between border-b border-gray-100 dark:border-gray-800 pb-1">
+                                <span class="font-bold">Grace M.</span> <span class="text-xs text-gray-400 uppercase tracking-wide">Coordinator</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 dark:border-gray-800 pb-1">
+                                <span class="font-bold">Tom Juma</span> <span class="text-xs text-gray-400 uppercase tracking-wide">Youth Rep</span>
+                            </li>
+                            <li class="flex justify-between pb-1">
+                                <span class="font-bold">Mary K.</span> <span class="text-xs text-gray-400 uppercase tracking-wide">Women Rep</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section class="vmv-section">
     <div class="vmv-container">
         
@@ -800,6 +893,8 @@
                 </button>
                 <button onclick="nextSong()" class="text-gray-600 dark:text-gray-300 hover:text-wiper-blue"><i class="fas fa-step-forward"></i></button>
             </div>
+
+            
 
             <a id="download-btn" href="audio/song1.mp3" download class="hidden sm:flex items-center gap-2 text-xs bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded hover:bg-gray-200 dark:text-white">
                 <i class="fas fa-download"></i> <span class="hidden md:inline">Download</span>
@@ -1281,6 +1376,35 @@ function loadVillageImages(villageName) {
 
         function togglePlayerVisibility() {
             document.getElementById('audio-player-bar').classList.toggle('translate-y-full');
+        }
+        // --- TEAM TOGGLE LOGIC ---
+        function toggleTeam(listId, btn) {
+            const list = document.getElementById(listId);
+            const isHidden = list.classList.contains('hidden');
+            
+            // 1. Close all other lists first (Optional - keeps it clean)
+            document.querySelectorAll('[id^="list-"]').forEach(el => {
+                if(el.id !== listId) el.classList.add('hidden');
+            });
+            
+            // 2. Reset all buttons
+            document.querySelectorAll('button[onclick^="toggleTeam"]').forEach(b => {
+                if(b !== btn) b.innerHTML = 'Tap to See <i class="fas fa-chevron-down ml-2"></i>';
+            });
+
+            // 3. Toggle the clicked list
+            if (isHidden) {
+                list.classList.remove('hidden');
+                // Change button text to "Close"
+                btn.innerHTML = 'Close List <i class="fas fa-chevron-up ml-2"></i>';
+                // Add a soft highlight color to button
+                btn.classList.add('bg-gray-100');
+            } else {
+                list.classList.add('hidden');
+                // Reset button text
+                btn.innerHTML = 'Tap to See <i class="fas fa-chevron-down ml-2"></i>';
+                btn.classList.remove('bg-gray-100');
+            }
         }
 
         function togglePlay() {
