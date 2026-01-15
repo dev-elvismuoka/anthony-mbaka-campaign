@@ -406,7 +406,7 @@
                     <a href="#resources" class="text-gray-700 dark:text-gray-200 hover:text-wiper-blue font-medium transition">Downloads</a>
                     <a href="#gallery" class="hover:text-wiper-blue transition">Gallery</a>
                     <button onclick="toggleTheme()" class="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full"><i id="theme-icon" class="fas fa-moon"></i></button>
-                    <a href="#donate" class="bg-wiper-blue text-white px-6 py-2 rounded-full font-bold hover:bg-wiper-dark transition shadow-lg shadow-blue-500/30">Join Us</a>
+                    <a href="#donate" class="bg-wiper-blue text-white px-6 py-2 rounded-full font-bold hover:bg-wiper-dark transition shadow-lg shadow-blue-500/30">Donate</a>
                     
                     
                 </div>
@@ -425,7 +425,7 @@
         <a href="#manifesto" class="block py-2 text-gray-600 font-bold border-b border-gray-100">Manifesto</a>
         <a href="#resources" class="block py-2 text-gray-600 font-bold border-b border-gray-100">Downloads</a>
         <a href="#news" class="block py-2 text-gray-600 font-bold border-b border-gray-100">Updates</a>
-        <a href="#contact" class="block py-2 text-wiper-blue font-bold">Join Us</a>
+        <a href="#contact" class="block py-2 text-wiper-blue font-bold">Donate</a>
     </div>
 </div>
 
@@ -858,35 +858,65 @@
     </section>
 
     <section id="donate" class="py-20 bg-gradient-to-br from-wiper-blue to-blue-900 text-white reveal">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-6">Power the Movement</h2>
-            <p class="mb-10 text-lg opacity-90">This campaign belongs to the people. Your contribution helps us reach every corner of Muthwani.</p>
-            
-            <div class="bg-white text-gray-900 rounded-xl shadow-2xl max-w-sm mx-auto overflow-hidden">
-                <div class="bg-green-600 p-4 flex justify-between items-center">
-                    <span class="font-bold text-white tracking-widest">M-PESA</span>
-                    <i class="fas fa-sim-card text-white/50 text-2xl"></i>
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-6">Power the Movement</h2>
+        <p class="mb-12 text-lg opacity-90 max-w-2xl mx-auto">This campaign belongs to the people. Your contribution helps us reach every corner of Muthwani.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+            <div class="bg-white text-gray-900 rounded-xl shadow-2xl overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                <div class="bg-green-600 p-4 flex justify-between items-center text-white">
+                    <span class="font-bold tracking-widest text-lg">M-PESA</span>
+                    <i class="fas fa-mobile-alt text-white/50 text-2xl"></i>
                 </div>
+                
                 <div class="p-8">
-                    <p class="text-sm text-gray-500 uppercase tracking-wide mb-1">Buy Goods / Till Number</p>
-                    <div class="flex items-center justify-center gap-3 mb-6">
-                        <span id="till-number" class="text-4xl font-bold text-gray-800">5921077</span>
-                        <button onclick="copyTill()" class="text-green-600 hover:text-green-700 p-2" title="Copy">
+                    <p class="text-xs text-gray-500 uppercase tracking-widest font-bold mb-2">Buy Goods / Till Number</p>
+                    <div class="flex items-center justify-center gap-3 mb-6 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                        <span id="till-number" class="text-3xl font-bold text-gray-800 tracking-wider">5921077</span>
+                        <button onclick="copyToClipboard('5921077')" class="text-green-600 hover:text-green-700 p-2 transition" title="Copy">
                             <i class="far fa-copy text-xl"></i>
                         </button>
                     </div>
                     
-                    <hr class="border-gray-100 my-4">
-                    
-                    <p class="text-sm text-gray-500 uppercase tracking-wide mb-1">Account Name</p>
-                    <p class="text-xl font-bold text-gray-800">Davids Travel House</p>
-                </div>
-                <div class="bg-gray-50 p-4 text-xs text-center text-gray-500">
-                    Thank you for your support!
+                    <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                        <span class="text-sm text-gray-500">Account Name</span>
+                        <span class="font-bold text-gray-800 text-right">Davids Travel House</span>
+                    </div>
                 </div>
             </div>
+
+            <div class="bg-white text-gray-900 rounded-xl shadow-2xl overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                <div class="bg-[#B90032] p-4 flex justify-between items-center text-white">
+                    <span class="font-bold tracking-widest text-lg">ABSA BANK</span>
+                    <i class="fas fa-university text-white/50 text-2xl"></i>
+                </div>
+                
+                <div class="p-8">
+                    <p class="text-xs text-gray-500 uppercase tracking-widest font-bold mb-2">Account Number</p>
+                    <div class="flex items-center justify-center gap-3 mb-4 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                        <span id="absa-acc" class="text-3xl font-bold text-gray-800 tracking-wider">205 571 30 09</span>
+                        <button onclick="copyToClipboard('2055713009')" class="text-[#B90032] hover:text-red-700 p-2 transition" title="Copy">
+                            <i class="far fa-copy text-xl"></i>
+                        </button>
+                    </div>
+
+                    <div class="space-y-3 border-t border-gray-100 pt-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Paybill No.</span>
+                            <span class="font-bold text-gray-800">303030</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Account Name</span>
+                            <span class="font-bold text-gray-800 text-right text-sm">Anthony Mbaka</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 text-center">
@@ -1467,13 +1497,15 @@ function loadVillageImages(villageName) {
             if (isPlaying) audio.play();
         }
 
-        // --- 5. DONATE COPY LOGIC ---
-        function copyTill() {
-            const till = document.getElementById('till-number').innerText;
-            navigator.clipboard.writeText(till).then(() => {
-                alert('Till Number Copied: ' + till);
-            });
-        }
+        // --- UPDATED COPY FUNCTION ---
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        // Simple alert - you can make this fancier if you want
+        alert('Copied to clipboard: ' + text);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
 
         // Dark Mode & Lightbox & Reveal & Typewriter & Countdown
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
