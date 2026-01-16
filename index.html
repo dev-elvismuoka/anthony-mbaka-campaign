@@ -826,10 +826,84 @@
             <div id="villageInfoContainer"></div>
             <div id="galleryGrid" class="..."></div>
             <div id="gallery-grid" class="flex overflow-x-auto gap-4 py-6 px-2 snap-x snap-mandatory scrollbar-hide" style="scrollbar-width: none;">
-            <div class="min-w-full text-center py-10 text-gray-400 border-2 border-dashed border-gray-200 rounded-xl"><i class="fas fa-images text-4xl mb-3"></i><p>Select a neighbourhood above to swipe through photos.</p></div>
+            
+            
+            <div class="col-span-full w-full bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm">
+    
+    <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-blue-100 text-wiper-blue rounded-full flex items-center justify-center">
+                <i class="fas fa-newspaper"></i>
             </div>
-            <p class="text-center text-gray-400 text-xs mt-2 animate-pulse"><i class="fas fa-chevron-left"></i> Swipe to see photos <i class="fas fa-chevron-right"></i></p>
+            <div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Campaign News Desk</h3>
+                <p class="text-xs text-gray-500">Swipe <i class="fas fa-arrow-right"></i> to see more articles</p>
+            </div>
         </div>
+    </div>
+
+    <div class="flex overflow-x-auto gap-6 pb-6 snap-x snap-mandatory items-start" style="scrollbar-width: thin;">
+
+        <article class="min-w-[85%] md:min-w-[400px] bg-gray-50 dark:bg-gray-900 rounded-xl p-5 border border-gray-200 dark:border-gray-700 snap-center flex-shrink-0">
+            <div class="h-48 overflow-hidden rounded-lg mb-4">
+                <img src="images/poster-12.jpg" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+            </div>
+            
+            <div class="flex justify-between items-center text-xs text-gray-400 mb-2">
+                <span class="font-bold text-wiper-blue bg-blue-50 px-2 py-1 rounded">Strategy</span>
+                <span>Jan 16, 2026</span>
+            </div>
+
+            <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-2 leading-tight">
+                Campaign Launch: The Vision for 2027
+            </h4>
+
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                (Summary) The energy at Muthwani grounds was electric today as we officially launched the roadmap.
+            </p>
+
+            <div id="news-1" class="hidden text-sm text-gray-600 dark:text-gray-300 space-y-3 mb-4 border-t border-gray-200 pt-4 animate-fade-in-up">
+                <p><strong>(Journalist types here...)</strong> The manifesto focuses on three key pillars: Water, Roads, and Youth Employment. The crowd cheered as we unveiled the new plans for the Kavilila borehole project.</p>
+                <p>We are committed to ensuring that every cent is accounted for. This is a new era of transparency.</p>
+            </div>
+
+            <button onclick="toggleNews('news-1', this)" class="text-wiper-blue text-sm font-bold hover:underline flex items-center gap-1">
+                Read Full Story <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+        </article>
+
+
+        <article class="min-w-[85%] md:min-w-[400px] bg-gray-50 dark:bg-gray-900 rounded-xl p-5 border border-gray-200 dark:border-gray-700 snap-center flex-shrink-0">
+            <div class="h-48 overflow-hidden rounded-lg mb-4">
+                <img src="images/poster-1.jpg" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+            </div>
+            
+            <div class="flex justify-between items-center text-xs text-gray-400 mb-2">
+                <span class="font-bold text-green-600 bg-green-50 px-2 py-1 rounded">Community</span>
+                <span>Jan 14, 2026</span>
+            </div>
+
+            <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-2 leading-tight">
+                Empowering Muthwani Women
+            </h4>
+
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                (Summary) Our meeting with market leaders confirmed our commitment to stall infrastructure.
+            </p>
+
+            <div id="news-2" class="hidden text-sm text-gray-600 dark:text-gray-300 space-y-3 mb-4 border-t border-gray-200 pt-4 animate-fade-in-up">
+                <p><strong>(Journalist types here...)</strong> The women of Joska market have been the backbone of our local economy. We discussed the new "Mama Mboga Fund" which will provide interest-free loans.</p>
+                <p>Construction of the new market shades begins next month.</p>
+            </div>
+
+            <button onclick="toggleNews('news-2', this)" class="text-wiper-blue text-sm font-bold hover:underline flex items-center gap-1">
+                Read Full Story <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+        </article>
+
+        </div>
+</div>
+
     </section>
 
    <section id="downloads" class="py-20 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 reveal">
@@ -1564,6 +1638,22 @@ function copyToClipboard(text) {
         }
     });
 }, { threshold: 0.1 });
+
+// --- NEWS TOGGLE LOGIC ---
+function toggleNews(newsId, btn) {
+    const content = document.getElementById(newsId);
+    const isHidden = content.classList.contains('hidden');
+
+    if (isHidden) {
+        // OPEN IT
+        content.classList.remove('hidden');
+        btn.innerHTML = 'Show Less <i class="fas fa-chevron-up text-xs"></i>';
+    } else {
+        // CLOSE IT
+        content.classList.add('hidden');
+        btn.innerHTML = 'Read Full Story <i class="fas fa-chevron-down text-xs"></i>';
+    }
+}
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
