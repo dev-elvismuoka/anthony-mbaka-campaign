@@ -825,108 +825,194 @@
         <div class="flex flex-wrap justify-center gap-2 mb-10" id="village-buttons"></div>
         
         <div id="villageInfoContainer"></div>
-        
-        <div id="galleryGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 min-h-[300px]">
-        
-            <div class="col-span-full w-full bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700 shadow-sm max-w-full overflow-hidden">
-        
-                <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-blue-100 text-wiper-blue rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-newspaper text-sm"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-base font-bold text-gray-900 dark:text-white leading-tight">Campaign Updates</h3>
-                            <p class="text-[10px] text-gray-500">Swipe <i class="fas fa-arrow-right"></i></p>
-                        </div>
-                    </div>
+
+        <div class="mb-8 w-full bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
+            
+            <div class="flex items-center gap-2 mb-3">
+                <div class="w-8 h-8 bg-blue-100 text-wiper-blue rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-newspaper text-sm"></i>
                 </div>
-
-                <div class="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory pr-12" style="scrollbar-width: none; -ms-overflow-style: none;">
-
-                    <article class="min-w-[66vw] md:min-w-[300px] bg-gray-50 dark:bg-gray-900 rounded-lg p-3 border border-gray-200 dark:border-gray-700 snap-start flex-shrink-0 flex flex-col">
-                        
-                        <div class="h-32 overflow-hidden rounded mb-2 relative">
-                            <img src="images/article-1.jpeg" class="w-full h-full object-cover hover:scale-110 transition duration-500">
-                            <span class="absolute top-1 left-1 bg-blue-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded">STRATEGY</span>
-                        </div>
-                        
-                        <div class="text-[9px] text-gray-400 mb-1 font-mono">JAN 23</div>
-
-                        <h4 class="text-sm font-bold text-gray-800 dark:text-white mb-1 leading-tight">
-                            Building Systems That Deliver
-                        </h4>
-
-                        <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-2 leading-snug line-clamp-2">
-                            My Commitment to Transforming Muthwani Ward.
-                        </p>
-
-                        <div id="news-1" class="hidden whitespace-normal break-words w-full text-[11px] text-gray-600 dark:text-gray-300 space-y-2 mb-2 border-t border-gray-200 pt-2">
-                            <p class="font-bold">As Kenya heads toward the 2027 elections, our national and county conversations are shifting.</p>
-                            <p>As MCA, I will prioritize:<br>
-                            》Upgrading key road networks.<br>
-                            》Improving water supply reliability.<br>
-                            》Enhancing drainage and walkways.</p>
-                            <p class="font-bold text-wiper-blue">Economic Empowerment:</p>
-                            <p>▪︎Strengthening SMEs.<br>
-                            ▪︎Supporting youth and women.<br>
-                            ▪︎Digital work partnerships.</p>
-                            <p class="uppercase font-bold text-xs text-wiper-blue mt-2">Kazi Si Maneno | Leadership That Delivers.</p>
-                        </div>
-
-                        <button onclick="toggleNews('news-1', this)" class="mt-auto text-wiper-blue text-[10px] font-bold hover:underline flex items-center gap-1">
-                            Read More <i class="fas fa-chevron-down text-[8px]"></i>
-                        </button>
-                    </article>
-
-                    <article class="min-w-[66vw] md:min-w-[300px] bg-gray-50 dark:bg-gray-900 rounded-lg p-3 border border-gray-200 dark:border-gray-700 snap-start flex-shrink-0 flex flex-col">
-                        
-                        <div class="h-32 overflow-hidden rounded mb-2 relative">
-                            <img src="images/article-2.jpeg" class="w-full h-full object-cover hover:scale-110 transition duration-500">
-                            <span class="absolute top-1 left-1 bg-green-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded">COMMUNITY</span>
-                        </div>
-                        
-                        <div class="text-[9px] text-gray-400 mb-1 font-mono">JAN 23</div>
-
-                        <h4 class="text-sm font-bold text-gray-800 dark:text-white mb-1 leading-tight">
-                            Muthwani Ward in 2026
-                        </h4>
-
-                        <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-2 leading-snug line-clamp-2">
-                            Leadership That Delivers in 2027.
-                        </p>
-
-                        <div id="news-2" class="hidden whitespace-normal break-words w-full text-[11px] text-gray-600 dark:text-gray-300 space-y-2 mb-2 border-t border-gray-200 pt-2">
-                            <p><strong>A message to the people of Joska, Utawala, Ng’alalya.</strong></p>
-                            <p>For too long, we have faced:</p>
-                            <ul class="list-disc pl-4 space-y-1">
-                                <li>Impassable dusty roads.</li>
-                                <li>Stalled water access.</li>
-                            </ul>
-                            <p class="font-bold text-wiper-blue mt-2">The Cost of Absentee Leadership</p>
-                            <p>Past leaders failed to use powerful committees like House Business and Roads to deliver for us.</p>
-                            <p class="uppercase font-bold text-xs text-wiper-blue mt-2">Kazi Si Maneno.</p>
-                        </div>
-
-                        <button onclick="toggleNews('news-2', this)" class="mt-auto text-wiper-blue text-[10px] font-bold hover:underline flex items-center gap-1">
-                            Read More <i class="fas fa-chevron-down text-[8px]"></i>
-                        </button>
-                    </article>
-                    
-                    <article class="min-w-[66vw] md:min-w-[300px] bg-gray-50 dark:bg-gray-900 rounded-lg p-3 border border-gray-200 dark:border-gray-700 snap-start flex-shrink-0 flex flex-col">
-                        <div class="h-32 bg-gray-200 dark:bg-gray-800 rounded mb-2 flex items-center justify-center text-gray-400">
-                            <i class="fas fa-newspaper text-3xl opacity-50"></i>
-                        </div>
-                        <div class="flex-1 flex flex-col justify-center text-center">
-                            <h4 class="text-sm font-bold text-gray-500 dark:text-gray-400 mb-1">More News Soon</h4>
-                            <p class="text-[11px] text-gray-400 dark:text-gray-500">Stay tuned.</p>
-                        </div>
-                    </article>
-                    
+                <div>
+                    <h3 class="text-base font-bold text-gray-900 dark:text-white leading-tight">Campaign Updates</h3>
+                    <p class="text-[10px] text-gray-500">Swipe <i class="fas fa-arrow-right"></i></p>
                 </div>
             </div>
-            
+
+            <div class="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory pr-12" style="scrollbar-width: none; -ms-overflow-style: none;">
+
+                <article class="w-[85vw] md:w-[350px] flex-shrink-0 bg-gray-50 dark:bg-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700 snap-start flex flex-col">
+                    
+                    <div class="h-32 overflow-hidden rounded mb-3 relative">
+                        <img src="images/article-1.jpeg" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                        <span class="absolute top-1 left-1 bg-blue-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded">STRATEGY</span>
+                    </div>
+                    
+                    <div class="text-[9px] text-gray-400 mb-1 font-mono">JAN 23, 2026</div>
+
+                    <h4 class="text-sm font-bold text-gray-800 dark:text-white mb-2 leading-tight">
+                        Building Systems That Deliver
+                    </h4>
+
+                    <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-3 leading-snug line-clamp-3">
+                        My Commitment to Transforming Muthwani Ward and Strengthening Machakos County Governance. As Kenya heads toward the 2027 elections...
+                    </p>
+
+                    <div id="news-1" class="hidden whitespace-normal break-words w-full text-[11px] text-gray-600 dark:text-gray-300 space-y-3 mb-2 border-t border-gray-200 pt-3">
+                        
+                        <p>As Kenya heads toward the 2027 elections, our national and county conversations are shifting. Voters are demanding infrastructure that works, economic empowerment that creates opportunities, and leadership that delivers measurable results.</p>
+                        <p>I am grounded in integrity, clarity, and a systems-driven approach to development.</p>
+
+                        <p class="font-bold text-wiper-blue border-b border-gray-200 pb-1">As MCA, I will prioritize:</p>
+                        <ul class="list-none space-y-1">
+                            <li>》Upgrading and maintaining key road networks across all our neighbourhoods ensuring seamless connectivity from one neighbourhood to the next to create a web of opportunities.</li>
+                            <li>》Improving water supply systems for reliability and household affordability.</li>
+                            <li>》Enhancing drainage and walkways to schools for accessibility during rainy days.</li>
+                            <li>》Expanding street & market centres lighting and digital connectivity to support safety, trade, and education.</li>
+                        </ul>
+
+                        <p class="font-bold text-wiper-blue border-b border-gray-200 pb-1 mt-2">Economic Empowerment That Lifts Households</p>
+                        <p>My economic empowerment agenda focuses on practical, sustainable impact:</p>
+                        <ul class="list-none space-y-1">
+                            <li>▪︎Strengthening SMEs and local enterprises.</li>
+                            <li>▪︎Supporting youth, women, PLWD, and artisans with access to skills and markets.</li>
+                            <li>▪︎Building partnerships that open pathways to digital work, agribusiness, and local manufacturing.</li>
+                            <li>▪︎Mobilizing community savings groups and micro-enterprise programs.</li>
+                        </ul>
+                        <p class="italic">Our people want work and systems that support progress — not political rhetoric.</p>
+
+                        <p class="font-bold text-wiper-blue border-b border-gray-200 pb-1 mt-2">Education is the Bridge to Transformation</p>
+                        <p>Education is the bridge to transformation, yet too many young people in Machakos are still left behind. Under my leadership:</p>
+                        <ul class="list-none space-y-1">
+                            <li>☆Every bursary shilling will be transparent and accounted for appropriately.</li>
+                            <li>☆We will look for internships, industry linkages, and career placements for all unemployed by developing a workforce employment online system for the residents.</li>
+                            <li>☆Community-based scholarships will support needy students.</li>
+                            <li>☆Digital learning and mentorship programs will be actively integrated across the Ward.</li>
+                        </ul>
+
+                        <p class="mt-2"><strong>And most importantly:</strong> I will rally fellow Members of the Machakos County Assembly to legislate policies that anchor our education priorities into the County Integrated Development Plan (CIDP). This ensures long-term continuity, funding, and measurable indicators.</p>
+
+                        <p class="font-bold text-wiper-blue border-b border-gray-200 pb-1 mt-2">The Next Assembly Must:</p>
+                        <ul class="list-none space-y-1">
+                            <li>¤Strengthen oversight.</li>
+                            <li>¤Improve development planning.</li>
+                            <li>¤Enhance citizen participation.</li>
+                            <li>¤Demand accountability from the County Executive.</li>
+                            <li>¤Align legislation directly with real community needs.</li>
+                        </ul>
+
+                        <p>I envision — and will help build — a vibrant Assembly where debates are intelligent, informed, and impact-oriented. An Assembly where motions, bills, and committee work genuinely to uplift Machakos residents.</p>
+
+                        <div class="bg-blue-50 dark:bg-gray-800 p-2 rounded border-l-2 border-wiper-blue mt-2">
+                            <p>-I come into this race not to add noise, but to provide solutions.</p>
+                            <p>-Not to follow political trends, but to set new standards.</p>
+                            <p>-Not to speak promises, but to build systems that deliver.</p>
+                        </div>
+
+                        <p class="uppercase font-bold text-xs text-wiper-blue mt-2">Muthwani deserves visible, consistent, accountable leadership — every day, not every five years. And I am ready to bring that leadership. Kazi Si Maneno | Leadership That Delivers.</p>
+                    </div>
+
+                    <button onclick="toggleNews('news-1', this)" class="mt-auto text-wiper-blue text-[10px] font-bold hover:underline flex items-center gap-1 py-2">
+                        Read Full Article <i class="fas fa-chevron-down text-[8px]"></i>
+                    </button>
+                </article>
+
+
+                <article class="w-[85vw] md:w-[350px] flex-shrink-0 bg-gray-50 dark:bg-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700 snap-start flex flex-col">
+                    
+                    <div class="h-32 overflow-hidden rounded mb-3 relative">
+                        <img src="images/article-2.jpeg" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                        <span class="absolute top-1 left-1 bg-green-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded">COMMUNITY</span>
+                    </div>
+                    
+                    <div class="text-[9px] text-gray-400 mb-1 font-mono">JAN 23, 2026</div>
+
+                    <h4 class="text-sm font-bold text-gray-800 dark:text-white mb-2 leading-tight">
+                        Muthwani Ward in 2026: We Deserve Kazi Si Maneno
+                    </h4>
+
+                    <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-3 leading-snug line-clamp-3">
+                        A message to the people of Joska Market, Utawala estates, Ng’alalya, Ivovoani, Katani, Seme, Manyatta, Mayland and Muthwani...
+                    </p>
+
+                    <div id="news-2" class="hidden whitespace-normal break-words w-full text-[11px] text-gray-600 dark:text-gray-300 space-y-3 mb-2 border-t border-gray-200 pt-3">
+                        
+                        <p>A message to the people of Joska Market, Utawala estates, Ng’alalya, Ivovoani, Katani, Seme, Manyatta, Mayland and Muthwani — your struggle is real, your voice matters, and 2027 can be our turning point.</p>
+                        
+                        <p>For too long, we have woken up to the same hardships. Our children walk on dusty roads in the dry season and sink into mud in the rains. Market merchants in Joska Market, Utawala estates, Ng’alalya, Ivovoani, and Muthwani know the pain of moving goods because most roads are impassable. Public transport ends at Airways, Githunguri, Katani Quarry Road, and Kangundo Road, leaving residents to struggle on Boda bodas just to get home.</p>
+                        
+                        <p>Water access from Mavwasco is stalled, leaving homes thirsty for reliable supply. Katani Level 2 Dispensary — meant to serve our community — stands in disarray, forcing mothers, children, and elders to travel far for even the simplest care. These aren’t distant stories — these are our daily realities.</p>
+                        
+                        <p>But these daily struggles were not inevitable. They are the result of leadership that promised much but delivered little.</p>
+
+                        <p class="font-bold text-wiper-blue border-b border-gray-200 pb-1 mt-2">The Cost of Absentee Leadership</p>
+                        <p>Our leaders in the Machakos County Assembly — including past MCAs like George Kingori (2017–2022) and earlier officeholders — sat in powerful committees meant to serve the people yet failed to leverage them for real development. These committees include:</p>
+
+                        <div class="pl-2 border-l-2 border-gray-300">
+                            <p><strong>🔹 House Business Committee:</strong> This is where important issues are scheduled for debate and action in the Assembly — issues like road repairs, transport access, school expansion, and water supply. Yet our matters sat too long on paper instead of being acted upon.</p>
+                            <p class="mt-2"><strong>🔹 Sectoral Committees (Education, Roads, Health, Lands):</strong> These are the committees meant to oversee budgets, fast‑track projects, and enforce accountability. They should have ensured that your money translated into passable roads, functional schools, and reliable health centers.</p>
+                        </div>
+
+                        <p>But the results are in front of us — inadequate roads, broken health services, water shortages, and stalled school improvements. The tools were there. The power was there. But the commitment was not.</p>
+
+                        <p class="font-bold text-wiper-blue border-b border-gray-200 pb-1 mt-2">Committee Power Is Meant to Deliver Results</p>
+                        <p>Today, Hon. Dominic Maitha serves in some of the most strategic committees — and this matters for you:</p>
+                        
+                        <ul class="list-none space-y-2">
+                            <li><strong>🔹 Chairperson — Committee on Implementation:</strong> This committee’s job is to ensure that the County Assembly’s resolutions and Executive decisions are not just passed, but executed. It is where plans become action on the ground.</li>
+                            <li><strong>🔹 Labour, Public Service, and ICT Committee:</strong> Oversees workers and service delivery systems — a backbone for efficient county services.</li>
+                            <li><strong>🔹 Education Committee:</strong> Can help ensure that schools are expanded, adequately resourced, and accessible for our children.</li>
+                            <li><strong>🔹 Lands and Energy Committee:</strong> Oversees electrification projects, land allocation, and infrastructure — key to expanding markets and homes.</li>
+                        </ul>
+
+                        <p>Imagine if past leaders had used these same committees with seriousness and urgency. Roads would be smooth, buses would reach further into our neighbourhoods, clinics like Katani Dispensary would flourish, and water would reach every household.</p>
+                        <p>Instead, we stood by as words filled the air but action failed to follow.</p>
+
+                        <p class="font-bold text-wiper-blue border-b border-gray-200 pb-1 mt-2">Why 2027 Must Be Our Turning Point</p>
+                        <p>2027 is not just another election — it’s our moment of decisive choice. We need a leader who:</p>
+                        <ul class="list-none space-y-1">
+                            <li>✔ Understands House Business and Assembly procedures. Someone who doesn’t wait to be told what to do but pushes our urgent needs into the decision agenda.</li>
+                            <li>✔ Has a concrete plan READY from day one. No waiting, no delays — roads, schools, health facilities, water systems must be on the implementation schedule from the start.</li>
+                            <li>✔ Delivers on promises with urgency and accountability. It’s not enough to talk — we must see visible change in our daily lives.</li>
+                        </ul>
+                        <p class="italic font-bold">This is the true meaning of Kazi Si Maneno | Leadership That Delivers.</p>
+
+                        <p class="font-bold text-wiper-blue border-b border-gray-200 pb-1 mt-2">A Call to the People of Muthwani Ward</p>
+                        <p>2027 is the year we say:</p>
+                        <ul class="list-none space-y-1">
+                            <li>🔹 No more roads that trap our children in dust and mud.</li>
+                            <li>🔹 No more water shortages that dictate our day.</li>
+                            <li>🔹 No more health facilities that leave us unattended.</li>
+                            <li>🔹 No more residents walking long distances from Airways, Githunguri, Katani Quarry, or Kangundo Road.</li>
+                            <li>🔹 No more merchants in Joska Market and estates struggling to move goods to markets and customers.</li>
+                        </ul>
+                        <p>We deserve leadership that doesn’t wait for development to filter down — leadership that forces it up and into our communities.</p>
+
+                        <p class="font-bold mt-2">Together, Let’s Bring Real Change</p>
+                        <p>Every election is a chance to choose what kind of future we want. In 2027, let the people of Joska Market, Utawala estates, Ng’alalya, Ivovoani, and Muthwani rise together and elect leadership with a tested plan and the will to implement it — a leader who understands House Business, committees, action, and accountability.</p>
+
+                        <p class="uppercase font-bold text-xs text-wiper-blue mt-2">No more empty promises. No more excuses. Kazi Si Maneno | Leadership That Delivers.</p>
+                    </div>
+
+                    <button onclick="toggleNews('news-2', this)" class="mt-auto text-wiper-blue text-[10px] font-bold hover:underline flex items-center gap-1 py-2">
+                        Read Full Article <i class="fas fa-chevron-down text-[8px]"></i>
+                    </button>
+                </article>
+                
+                <article class="w-[85vw] md:w-[350px] flex-shrink-0 bg-gray-50 dark:bg-gray-900 rounded-lg p-3 border border-gray-200 dark:border-gray-700 snap-start flex flex-col">
+                    <div class="h-32 bg-gray-200 dark:bg-gray-800 rounded mb-2 flex items-center justify-center text-gray-400">
+                        <i class="fas fa-newspaper text-3xl opacity-50"></i>
+                    </div>
+                    <div class="flex-1 flex flex-col justify-center text-center">
+                        <h4 class="text-sm font-bold text-gray-500 dark:text-gray-400 mb-1">More News Soon</h4>
+                        <p class="text-[11px] text-gray-400 dark:text-gray-500">Stay tuned.</p>
+                    </div>
+                </article>
+                
+            </div>
         </div>
+
+        <div id="galleryGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4 min-h-[100px]"></div>
+
     </div>
 </section>
 
