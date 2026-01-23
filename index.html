@@ -817,162 +817,134 @@
     </section>
 
     <section id="gallery" class="py-20 bg-white dark:bg-gray-900 reveal">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-10 dark:text-white">Muthwani Ward Neighbourhoods</h2>
-            <p class="text-center text-wiper-blue dark:text-blue-300 mb-6 font-bold"> Click on your neighbourhood to learn more</p>
+    <div class="max-w-7xl mx-auto px-4">
+        
+        <h2 class="text-3xl font-bold text-center mb-10 dark:text-white">Muthwani Ward Neighbourhoods</h2>
+        <p class="text-center text-wiper-blue dark:text-blue-300 mb-6 font-bold"> Click on your neighbourhood to learn more</p>
 
-   
-            <div class="flex flex-wrap justify-center gap-2 mb-10" id="village-buttons"></div>
-            <div id="villageInfoContainer"></div>
-            <div id="galleryGrid" class="..."></div>
-            <div id="gallery-grid" class="flex overflow-x-auto gap-4 py-6 px-2 snap-x snap-mandatory scrollbar-hide" style="scrollbar-width: none;">
-            
+        <div class="flex flex-wrap justify-center gap-2 mb-10" id="village-buttons"></div>
+        
+        <div id="villageInfoContainer"></div>
+        
+        <div id="galleryGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 min-h-[300px]">
+        
             <div class="col-span-full w-full bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700 shadow-sm max-w-full overflow-hidden">
-    
-    <div class="flex items-center justify-between mb-3">
-        <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-blue-100 text-wiper-blue rounded-full flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-newspaper text-sm"></i>
+        
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-blue-100 text-wiper-blue rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-newspaper text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-gray-900 dark:text-white leading-tight">Campaign Updates</h3>
+                            <p class="text-[10px] text-gray-500">Swipe <i class="fas fa-arrow-right"></i></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory pr-12" style="scrollbar-width: none; -ms-overflow-style: none;">
+
+                    <article class="min-w-[66vw] md:min-w-[300px] bg-gray-50 dark:bg-gray-900 rounded-lg p-3 border border-gray-200 dark:border-gray-700 snap-start flex-shrink-0 flex flex-col">
+                        
+                        <div class="h-32 overflow-hidden rounded mb-2 relative">
+                            <img src="images/article-1.jpeg" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                            <span class="absolute top-1 left-1 bg-blue-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded">STRATEGY</span>
+                        </div>
+                        
+                        <div class="text-[9px] text-gray-400 mb-1 font-mono">JAN 23</div>
+
+                        <h4 class="text-sm font-bold text-gray-800 dark:text-white mb-1 leading-tight">
+                            Building Systems That Deliver
+                        </h4>
+
+                        <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-2 leading-snug line-clamp-2">
+                            My Commitment to Transforming Muthwani Ward and Strengthening Machakos County Governance.
+                        </p>
+
+                        <div id="news-1" class="hidden whitespace-normal break-words w-full text-[11px] text-gray-600 dark:text-gray-300 space-y-2 mb-2 border-t border-gray-200 pt-2">
+                            <p class="font-bold">As Kenya heads toward the 2027 elections, our national and county conversations are shifting.</p>
+                            
+                            <p>As MCA, I will prioritize:<br>
+                            》Upgrading key road networks.<br>
+                            》Improving water supply reliability.<br>
+                            》Enhancing drainage and walkways.<br>
+                            》Expanding street lighting.</p>
+
+                            <p class="font-bold text-wiper-blue">Economic Empowerment:</p>
+                            <p>▪︎Strengthening SMEs.<br>
+                            ▪︎Supporting youth and women.<br>
+                            ▪︎Digital work partnerships.</p>
+
+                            <p class="font-bold text-wiper-blue">Education & Oversight:</p>
+                            <p>☆Transparent bursaries.<br>
+                            ☆Workforce employment system.<br>
+                            ☆Legislation for CIDP priorities.</p>
+
+                            <p class="uppercase font-bold text-xs text-wiper-blue mt-2">Kazi Si Maneno | Leadership That Delivers.</p>
+                        </div>
+
+                        <button onclick="toggleNews('news-1', this)" class="mt-auto text-wiper-blue text-[10px] font-bold hover:underline flex items-center gap-1">
+                            Read More <i class="fas fa-chevron-down text-[8px]"></i>
+                        </button>
+                    </article>
+
+                    <article class="min-w-[66vw] md:min-w-[300px] bg-gray-50 dark:bg-gray-900 rounded-lg p-3 border border-gray-200 dark:border-gray-700 snap-start flex-shrink-0 flex flex-col">
+                        
+                        <div class="h-32 overflow-hidden rounded mb-2 relative">
+                            <img src="images/article-2.jpeg" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                            <span class="absolute top-1 left-1 bg-green-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded">COMMUNITY</span>
+                        </div>
+                        
+                        <div class="text-[9px] text-gray-400 mb-1 font-mono">JAN 23</div>
+
+                        <h4 class="text-sm font-bold text-gray-800 dark:text-white mb-1 leading-tight">
+                            Muthwani Ward in 2026
+                        </h4>
+
+                        <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-2 leading-snug line-clamp-2">
+                            Leadership That Delivers in 2027.
+                        </p>
+
+                        <div id="news-2" class="hidden whitespace-normal break-words w-full text-[11px] text-gray-600 dark:text-gray-300 space-y-2 mb-2 border-t border-gray-200 pt-2">
+                            <p><strong>A message to the people of Joska, Utawala, Ng’alalya, Ivovoani, and Muthwani.</strong></p>
+                            
+                            <p>For too long, we have faced:</p>
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Impassable dusty roads.</li>
+                                <li>Costly transport challenges.</li>
+                                <li>Stalled water access.</li>
+                            </ul>
+
+                            <p class="font-bold text-wiper-blue mt-2">The Cost of Absentee Leadership</p>
+                            <p>Past leaders failed to use powerful committees like House Business and Roads to deliver for us.</p>
+
+                            <p class="font-bold mt-2">Why 2027 Must Be Our Turning Point</p>
+                            <p>We need a leader who understands Assembly procedures and has a plan READY from day one.</p>
+
+                            <p class="uppercase font-bold text-xs text-wiper-blue mt-2">Kazi Si Maneno.</p>
+                        </div>
+
+                        <button onclick="toggleNews('news-2', this)" class="mt-auto text-wiper-blue text-[10px] font-bold hover:underline flex items-center gap-1">
+                            Read More <i class="fas fa-chevron-down text-[8px]"></i>
+                        </button>
+                    </article>
+                    
+                    <article class="min-w-[66vw] md:min-w-[300px] bg-gray-50 dark:bg-gray-900 rounded-lg p-3 border border-gray-200 dark:border-gray-700 snap-start flex-shrink-0 flex flex-col">
+                        <div class="h-32 bg-gray-200 dark:bg-gray-800 rounded mb-2 flex items-center justify-center text-gray-400">
+                            <i class="fas fa-newspaper text-3xl opacity-50"></i>
+                        </div>
+                        <div class="flex-1 flex flex-col justify-center text-center">
+                            <h4 class="text-sm font-bold text-gray-500 dark:text-gray-400 mb-1">More News Soon</h4>
+                            <p class="text-[11px] text-gray-400 dark:text-gray-500">Stay tuned.</p>
+                        </div>
+                    </article>
+                    
+                </div>
             </div>
-            <div>
-                <h3 class="text-base font-bold text-gray-900 dark:text-white leading-tight">Campaign Updates</h3>
-                <p class="text-[10px] text-gray-500">Swipe <i class="fas fa-arrow-right"></i></p>
-            </div>
+            
         </div>
     </div>
-
-    <div class="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory pr-12" style="scrollbar-width: none; -ms-overflow-style: none;">
-
-        <article class="min-w-[66vw] md:min-w-[300px] bg-gray-50 dark:bg-gray-900 rounded-lg p-3 border border-gray-200 dark:border-gray-700 snap-start flex-shrink-0 flex flex-col">
-            
-            <article class="min-w-[66vw] md:min-w-[300px] bg-gray-50 dark:bg-gray-900 rounded-lg p-3 border border-gray-200 dark:border-gray-700 snap-start flex-shrink-0 flex flex-col">
-            
-            <div class="h-32 overflow-hidden rounded mb-2 relative">
-                <img src="images/article-1.jpeg" class="w-full h-full object-cover hover:scale-110 transition duration-500">
-                <span class="absolute top-1 left-1 bg-blue-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded">STRATEGY</span>
-            </div>
-            
-            <div class="text-[9px] text-gray-400 mb-1 font-mono">
-                JAN 23
-            </div>
-
-            <h4 class="text-sm font-bold text-gray-800 dark:text-white mb-1 leading-tight">
-                Building Systems That Deliver
-            </h4>
-
-            <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-2 leading-snug line-clamp-2">
-                My Commitment to Transforming Muthwani Ward and Strengthening Machakos County Governance.
-            </p>
-
-            <div id="news-1" class="hidden whitespace-normal break-words w-full text-[11px] text-gray-600 dark:text-gray-300 space-y-2 mb-2 border-t border-gray-200 pt-2">
-                
-                <p class="font-bold">As Kenya heads toward the 2027 elections, our national and county conversations are shifting.</p>
-                
-                <p>As MCA, I will prioritize:<br>
-                》Upgrading key road networks for connectivity.<br>
-                》Improving water supply reliability.<br>
-                》Enhancing drainage and walkways to schools.<br>
-                》Expanding street lighting and digital connectivity.</p>
-
-                <p class="font-bold text-wiper-blue">Economic Empowerment:</p>
-                <p>▪︎Strengthening SMEs and local enterprises.<br>
-                ▪︎Supporting youth, women, and artisans.<br>
-                ▪︎Building partnerships for digital work.<br>
-                ▪︎Mobilizing community savings groups.</p>
-
-                <p class="font-bold text-wiper-blue">Education & Oversight:</p>
-                <p>☆Transparent bursary allocation.<br>
-                ☆Workforce employment online system.<br>
-                ☆Community-based scholarships.<br>
-                ☆Legislation to anchor priorities in the CIDP.</p>
-
-                <p class="italic font-bold mt-2">"I come into this race not to add noise, but to build systems that deliver."</p>
-                <p class="uppercase font-bold text-xs text-wiper-blue">Kazi Si Maneno | Leadership That Delivers.</p>
-            </div>
-
-            <button onclick="toggleNews('news-1', this)" class="mt-auto text-wiper-blue text-[10px] font-bold hover:underline flex items-center gap-1">
-                Read More <i class="fas fa-chevron-down text-[8px]"></i>
-            </button>
-        </article>
-
-        <article class="min-w-[66vw] md:min-w-[300px] bg-gray-50 dark:bg-gray-900 rounded-lg p-3 border border-gray-200 dark:border-gray-700 snap-start flex-shrink-0 flex flex-col">
-    
-    <div class="h-32 overflow-hidden rounded mb-2 relative">
-        <img src="images/article-2.jpeg" class="w-full h-full object-cover hover:scale-110 transition duration-500">
-        <span class="absolute top-1 left-1 bg-green-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded">COMMUNITY</span>
-    </div>
-    
-    <div class="text-[9px] text-gray-400 mb-1 font-mono">
-        JAN 23
-    </div>
-
-    <h4 class="text-sm font-bold text-gray-800 dark:text-white mb-1 leading-tight">
-        Muthwani Ward in 2026: We Deserve Kazi Si Maneno
-    </h4>
-
-    <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-2 leading-snug line-clamp-2">
-        Leadership That Delivers in 2027.
-    </p>
-
-    <div id="news-2" class="hidden whitespace-normal break-words w-full text-[11px] text-gray-600 dark:text-gray-300 space-y-2 mb-2 border-t border-gray-200 pt-2">
-        
-        <p><strong>A message to the people of Joska Market, Utawala estates, Ng’alalya, Ivovoani, Katani, Seme, Manyatta, Mayland and Muthwani — your struggle is real.</strong></p>
-        
-        <p>For too long, we have woken up to the same hardships:</p>
-        <ul class="list-disc pl-4 space-y-1">
-            <li>Children walking on dusty roads or sinking into mud.</li>
-            <li>Merchants unable to move goods due to impassable roads.</li>
-            <li>Public transport ending at main roads, forcing costly Boda boda trips.</li>
-            <li>Stalled water access and disarray at Katani Level 2 Dispensary.</li>
-        </ul>
-
-        <p class="font-bold text-wiper-blue mt-2">The Cost of Absentee Leadership</p>
-        <p>Past leaders sat in powerful committees yet failed to leverage them:</p>
-        
-        <p><strong>🔹 House Business Committee:</strong> Where issues should be scheduled for action, but ours sat on paper.</p>
-        <p><strong>🔹 Sectoral Committees (Education, Roads, Health):</strong> Meant to oversee budgets and enforce accountability, yet we see broken services.</p>
-
-        <p class="font-bold text-wiper-blue mt-2">Committee Power Should Deliver Results</p>
-        <p>Hon. Dominic Maitha currently serves in strategic committees (Implementation, Labour, Education, Lands). Imagine if these tools were used with urgency—roads would be smooth, and clinics would flourish.</p>
-
-        <p class="font-bold mt-2">Why 2027 Must Be Our Turning Point</p>
-        <p>We need a leader who:</p>
-        <ul class="list-disc pl-4 space-y-1">
-            <li>Understand House Business procedures.</li>
-            <li>Has a concrete plan READY from day one.</li>
-            <li>Delivers on promises with urgency.</li>
-        </ul>
-
-        <p class="italic font-bold mt-2">"No more empty promises. No more excuses."</p>
-        <p class="uppercase font-bold text-xs text-wiper-blue">Kazi Si Maneno | Leadership That Delivers.</p>
-    </div>
-
-    <button onclick="toggleNews('news-2', this)" class="mt-auto text-wiper-blue text-[10px] font-bold hover:underline flex items-center gap-1">
-        Read More <i class="fas fa-chevron-down text-[8px]"></i>
-    </button>
-</article>
-       
-        <article class="min-w-[66vw] md:min-w-[300px] bg-gray-50 dark:bg-gray-900 rounded-lg p-3 border border-gray-200 dark:border-gray-700 snap-start flex-shrink-0 flex flex-col">
-    
-    <div class="h-32 bg-gray-200 dark:bg-gray-800 rounded mb-2 flex items-center justify-center text-gray-400">
-        <i class="fas fa-newspaper text-3xl opacity-50"></i>
-    </div>
-    
-    <div class="flex-1 flex flex-col justify-center text-center">
-        <h4 class="text-sm font-bold text-gray-500 dark:text-gray-400 mb-1">
-            More News Coming Soon
-        </h4>
-        <p class="text-[11px] text-gray-400 dark:text-gray-500">
-            Stay tuned for updates from the campaign trail.
-        </p>
-    </div>
-
-</article>
-       
-    </div>
-</div>
-
-    </section>
+</section>
 
    <section id="downloads" class="py-20 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 reveal">
         <div class="max-w-7xl mx-auto px-4">
