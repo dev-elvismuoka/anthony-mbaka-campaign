@@ -897,6 +897,30 @@
         </div>
     </section>
 
+    <section id="videos" class="py-20 bg-gray-900 text-white border-t border-gray-800 reveal">
+    <div class="max-w-7xl mx-auto px-4">
+        
+        <div class="flex flex-col md:flex-row justify-between items-end mb-10 border-b border-gray-800 pb-4">
+            <div>
+                <span class="text-wiper-gold font-bold tracking-widest uppercase text-xs">Watch & Listen</span>
+                <h2 class="text-3xl font-serif font-bold text-white mt-1">Campaign TV</h2>
+            </div>
+            <div class="hidden md:flex items-center gap-2 text-sm text-gray-400">
+                <i class="fas fa-play-circle text-wiper-blue"></i>
+                <span>Exclusive Videos</span>
+            </div>
+        </div>
+
+        <div id="video-container" class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory" style="scrollbar-width: none; -ms-overflow-style: none;">
+            </div>
+
+        <div class="text-center text-gray-500 text-xs animate-pulse">
+            <i class="fas fa-chevron-left"></i> Swipe to watch more <i class="fas fa-chevron-right"></i>
+        </div>
+
+    </div>
+</section>
+
     <section id="gallery" class="py-20 bg-white dark:bg-gray-900 reveal">
     <div class="max-w-7xl mx-auto px-4">
         
@@ -1097,6 +1121,10 @@
     </div>
 </section>
 
+    
+
+
+
    <section id="downloads" class="py-20 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 reveal">
         <div class="max-w-7xl mx-auto px-4">
             <div class="bg-wiper-blue/10 dark:bg-blue-900/20 rounded-2xl p-8 md:p-12">
@@ -1232,6 +1260,20 @@
             </button>
         </div>
     </div>
+
+    <div id="video-modal" class="fixed inset-0 z-[70] bg-black/95 hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300">
+    
+    <button onclick="closeVideo()" class="absolute top-6 right-6 text-white/50 hover:text-white text-5xl font-bold transition z-50">
+        &times;
+    </button>
+
+    <div class="w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-800 relative">
+        <video id="main-video-player" class="w-full h-auto max-h-[80vh]" controls>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
 
     <script>
 
@@ -1623,6 +1665,98 @@
                 </a>`;
             });
         }
+
+        // ==========================================
+//           CAMPAIGN TV LOGIC
+// ==========================================
+
+// 1. YOUR VIDEO LIST (Add your videos here)
+// Note: You need thumbnail images for the videos.
+const campaignVideos = [
+    {
+        title: "Campaign Launch Highlights",
+        date: "Jan 24, 2026",
+        thumbnail: "images/poster-12.jpg", // Use a poster as the cover image
+        videoFile: "videos/launch.mp4"     // Put your .mp4 video in a 'videos' folder
+    },
+    {
+        title: "Kazi Si Maneno: Road Works",
+        date: "Jan 10, 2026",
+        thumbnail: "images/article-2.jpeg", 
+        videoFile: "videos/roadworks.mp4"
+    },
+    {
+        title: "Message to the Youth",
+        date: "Dec 12, 2025",
+        thumbnail: "images/poster-1.jpg", 
+        videoFile: "videos/youth_msg.mp4"
+    },
+    {
+        title: "Muthwani Women Empowerment",
+        date: "Nov 05, 2025",
+        thumbnail: "images/article-1.jpeg", 
+        videoFile: "videos/women.mp4"
+    }
+];
+
+// 2. BUILD THE VIDEO CARDS
+const vidContainer = document.getElementById('video-container');
+if(vidContainer) {
+    campaignVideos.forEach(vid => {
+        vidContainer.innerHTML += `
+        <div onclick="playVideo('${vid.videoFile}')" class="min-w-[280px] w-[280px] md:min-w-[350px] md:w-[350px] snap-center cursor-pointer group relative rounded-xl overflow-hidden shadow-lg border border-gray-800">
+            
+            <div class="h-48 overflow-hidden relative">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition z-10"></div>
+                <img src="${vid.thumbnail}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                
+                <div class="absolute inset-0 flex items-center justify-center z-20">
+                    <div class="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-play text-white text-xl ml-1"></i>
+                    </div>
+                </div>
+                
+                <span class="absolute bottom-3 right-3 bg-black/60 text-white text-[10px] font-bold px-2 py-1 rounded backdrop-blur-md z-20">
+                    WATCH NOW
+                </span>
+            </div>
+
+            <div class="bg-gray-800 p-4">
+                <p class="text-xs text-wiper-blue font-bold mb-1">${vid.date}</p>
+                <h3 class="text-white font-bold leading-tight group-hover:text-wiper-gold transition">${vid.title}</h3>
+            </div>
+        </div>`;
+    });
+}
+
+// 3. PLAYER FUNCTIONS
+const videoModal = document.getElementById('video-modal');
+const videoPlayer = document.getElementById('main-video-player');
+
+function playVideo(fileSource) {
+    // Show Modal
+    videoModal.classList.remove('hidden');
+    // Set Video Source
+    videoPlayer.src = fileSource;
+    // Play Immediately
+    videoPlayer.play();
+}
+
+function closeVideo() {
+    // Hide Modal
+    videoModal.classList.add('hidden');
+    // Stop Video
+    videoPlayer.pause();
+    videoPlayer.currentTime = 0; // Reset to start
+    videoPlayer.src = ""; // Clear source to stop buffering
+}
+
+// Close if clicking outside the video
+videoModal.addEventListener('click', (e) => {
+    if (e.target === videoModal) {
+        closeVideo();
+    }
+});
 
         // Gallery
         const villageContainer = document.getElementById('village-buttons');
