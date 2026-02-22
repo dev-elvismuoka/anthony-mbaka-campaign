@@ -897,13 +897,13 @@
         </div>
     </section>
 
-    <section id="videos" class="py-20 bg-gray-900 text-white border-t border-gray-800 reveal">
+    <section id="videos" class="py-20 bg-gray-900 text-white border-t border-white-800 reveal">
     <div class="max-w-7xl mx-auto px-4">
         
-        <div class="flex flex-col md:flex-row justify-between items-end mb-10 border-b border-gray-800 pb-4">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-10 border-b border-white-800 pb-4">
             <div>
                 <span class="text-wiper-gold font-bold tracking-widest uppercase text-xs">Watch & Listen</span>
-                <h2 class="text-3xl font-serif font-bold text-white mt-1">Campaign TV</h2>
+                <h2 class="text-3xl font-serif font-bold text-gray mt-1">Campaign TV</h2>
             </div>
             <div class="hidden md:flex items-center gap-2 text-sm text-gray-400">
                 <i class="fas fa-play-circle text-wiper-blue"></i>
@@ -1103,6 +1103,57 @@
                     </button>
                 </article>
                 
+                <article class="w-[85vw] md:w-[350px] flex-shrink-0 bg-gray-50 dark:bg-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700 snap-start flex flex-col">
+                    
+                    <div class="h-32 overflow-hidden rounded mb-3 relative">
+                        <img src="images/article-3.jpeg" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                        <span class="absolute top-1 left-1 bg-blue-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded">POLITICS</span>
+                    </div>
+                    
+                    <div class="text-[9px] text-gray-400 mb-1 font-mono">FEB 22, 2026</div>
+
+                    <h4 class="text-sm font-bold text-gray-800 dark:text-white mb-2 leading-tight">
+                        Today, We Make History: Jubilee and PNU Form United Front
+                    </h4>
+
+                    <p class="text-[11px] text-gray-600 dark:text-gray-400 mb-3 leading-snug line-clamp-3">
+                        The Jubilee Party and the Party of National Unity (PNU) have come together with one clear mission: to reclaim Kenya’s future and restore competent...
+                    </p>
+
+                    <div id="news-3" class="hidden whitespace-normal break-words w-full text-[11px] text-gray-600 dark:text-gray-300 space-y-3 mb-2 border-t border-gray-200 pt-3">
+                        
+                        <p>Today, we make history. The Jubilee Party and the Party of National Unity (PNU) have come together with one clear mission: to reclaim Kenya’s future and restore competent, accountable leadership.</p>
+                        
+                        <p>Kenya cannot afford trial-and-error governance. Our nation is grappling with a collapsing economy, runaway taxation, rising cost of living, youth unemployment, and public institutions that have been weakened by mismanagement and political arrogance. The time for slogans is over. The time for decisive action is now.</p>
+                        
+                        <p class="font-bold text-wiper-blue border-b border-gray-200 pb-1 mt-2">Endorsement of Dr. Fred Matiang'i</p>
+                        
+                        <p>In this united front, PNU proudly endorses <strong>Fred Matiang'i</strong> as its Presidential Candidate for the 2027 General Election. Dr. Matiang’i represents firm leadership, discipline in public service, and a no-nonsense approach to delivering results.</p>
+                        
+                        <p>His record speaks for itself—from restoring order in the education sector to strengthening national security and enforcing accountability in public administration.</p>
+
+                        <p class="font-bold text-wiper-blue border-b border-gray-200 pb-1 mt-2">Rescue and Reconstruction</p>
+                        
+                        <p>This alliance is not about convenience—it is about rescue and reconstruction. It is about:</p>
+
+                        <ul class="list-none space-y-1">
+                            <li>✔ Rebuilding our economy</li>
+                            <li>✔ Defending constitutionalism</li>
+                            <li>✔ Protecting devolution</li>
+                            <li>✔ Empowering our youth</li>
+                            <li>✔ Restoring dignity to public service</li>
+                        </ul>
+
+                        <p>Kenya deserves leadership that works—not leadership that experiments. The movement to restore our nation has begun.</p>
+
+                        <p class="uppercase font-bold text-xs text-wiper-blue mt-2">#TwendeKazi</p>
+                    </div>
+
+                    <button onclick="toggleNews('news-3', this)" class="mt-auto text-wiper-blue text-[10px] font-bold hover:underline flex items-center gap-1 py-2">
+                        Read Full Article <i class="fas fa-chevron-down text-[8px]"></i>
+                    </button>
+                </article>
+
                 <article class="w-[85vw] md:w-[350px] flex-shrink-0 bg-gray-50 dark:bg-gray-900 rounded-lg p-3 border border-gray-200 dark:border-gray-700 snap-start flex flex-col">
                     <div class="h-32 bg-gray-200 dark:bg-gray-800 rounded mb-2 flex items-center justify-center text-gray-400">
                         <i class="fas fa-newspaper text-3xl opacity-50"></i>
@@ -1674,10 +1725,10 @@
 // Note: You need thumbnail images for the videos.
 const campaignVideos = [
     {
-        title: "Campaign Launch Highlights",
+        title: "Campaign Interview",
         date: "Jan 24, 2026",
         thumbnail: "images/poster-12.jpg", // Use a poster as the cover image
-        videoFile: "videos/launch.mp4"     // Put your .mp4 video in a 'videos' folder
+        videoFile: "videos/video-1.mp4"     // Put your .mp4 video in a 'videos' folder
     },
     {
         title: "Kazi Si Maneno: Road Works",
