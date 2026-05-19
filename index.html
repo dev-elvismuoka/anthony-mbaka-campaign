@@ -667,20 +667,49 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-wiper-blue reveal">
-                    <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-wiper-blue mb-6">
-                        <i class="fas fa-road text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 dark:text-white"> SIR — Smart Infrastructure Revolution</h3>
-                    <ul class="space-y-3 text-gray-600 dark:text-gray-400 text-sm">
-                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> <span><strong>Roads:</strong> Upgrading of main and feeder roads in Utawala Airways/Githunguri, Manyatta/Mayland, Seme/Katani, Joska, Kamulu, Ngelani, Kavilila/Misuuni Market, Ivalini/Ndovoini & Ng'alalya.</span></li>
-                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> <span><strong>Water:</strong> Constant coordination between Mavwasco and Athi water works development agency for fresh water provision.</span></li>
-                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> <span><strong>Lighting:</strong> "Mulika Mwizi" for all estates.</span></li>
-                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i> <span><strong>Public Institutions:</strong> Primary and secondary schools, Hospital & level 2 and 3 dispensaries, Library and Sports Utility Grounds.</span></li>
-                    </ul>
-                </div>
+           <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-wiper-blue reveal">
+    
+    <div class="w-16 h-16 border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 rounded flex items-center justify-center mb-6 overflow-hidden p-1">
+        <img src="images/sir-logo.jpg" alt="SIR" class="w-full h-full object-contain">
+    </div>
+
+    <h3 class="text-xl font-bold mb-1 dark:text-white leading-tight">SMART INFRASTRUCTURE REVOLUTION (SIR)</h3>
+    
+    <p class="text-wiper-blue font-semibold italic text-sm mb-4">The Foundation of a Modern Muthwani.</p>
+
+    <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 leading-relaxed">
+        The Smart Infrastructure Revolution (SIR) is the foundation of our development plan, the core system that unlocks mobility, growth, safety, and opportunity for every resident.
+    </p>
+
+    <ul class="space-y-4 text-gray-600 dark:text-gray-400 text-sm">
+        
+        <li class="flex items-start">
+            <span class="mr-2 text-lg">🚆</span> 
+            <span><strong>Muthwani Metro Railway Transit Service:</strong> Our flagship project connecting Muthwani to Nairobi, via Embakasi terminus, and Syokimau terminus. Faster movement. Bigger opportunities.</span>
+        </li>
+
+        <li class="flex items-start">
+            <span class="mr-2 text-lg">🛣️</span> 
+            <span><strong>Smart Roads & Mobility Network:</strong> Upgraded main and feeder roads across all estates and villages. Safe, efficient, reliable transport for work and business.</span>
+        </li>
+
+        <li class="flex items-start">
+            <span class="mr-2 text-lg">💧</span> 
+            <span><strong>Water Security for Every Home:</strong> Expanded pipelines, borehole integration, and smart distribution through proper coordination between the MCA office, Mavwasco, Machakos County Government and Athi Water Works. Clean, dependable water as a basic right.</span>
+        </li>
+
+        <li class="flex items-start">
+            <span class="mr-2 text-lg">💡</span> 
+            <span><strong>Smart Lighting & Public Safety:</strong> “Mulika Mwizi” LED solar lighting and modern safety tech. Secure neighbourhoods, vibrant evenings.</span>
+        </li>
+
+        <li class="flex items-start">
+            <span class="mr-2 text-lg">🏫</span> 
+            <span><strong>Schools, Health & Public Facilities:</strong> Modern schools, a community hospital, dispensaries, and a digital library, communal public playgrounds and public spaces within our neighbourhoods. Strong institutions for a stronger community.</span>
+        </li>
+        
+    </ul>
+</div>
 
                 <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-wiper-gold reveal" style="transition-delay: 200ms">
     
@@ -2022,6 +2051,25 @@
 
 // 1. YOUR VIDEO LIST (Add your videos here)
 const campaignVideos = [
+
+     {
+        title: "Campaign Office",
+        date: "May 19, 2025",
+        videoFile: "videos/office2.mp4"
+    },
+
+    {
+        title: "Jobs for Muhwani",
+        date: "May 19, 2025",
+        videoFile: "videos/Muthwani.mp4"
+    },
+    {
+        title: "What we need to do to change our lives",
+        date: "May 19, 2025",
+        videoFile: "videos/Office.mp4"
+    },
+   
+
     {
         title: "Campaign Interview",
         date: "Jan 24, 2026",
@@ -2041,7 +2089,11 @@ const campaignVideos = [
         title: "PNU Supports Matian'gi",
         date: "March 29, 2025",
         videoFile: "videos/PNU Supports Matian'gi.mp4"
-    }
+    },
+    
+
+
+
 ];
 
 // 2. BUILD THE VIDEO CARDS
