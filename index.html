@@ -18,7 +18,7 @@
                 extend: {
                     colors: { wiper: { blue: '#0066CC', dark: '#004C99', gold: '#FFD700' } },
                     fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Merriweather', 'serif'] },
-                    animation: { marquee: 'marquee 25s linear infinite', 'fade-in-up': 'fadeInUp 0.8s ease-out' },
+                    animation: { marquee: 'marquee 35s linear infinite', 'fade-in-up': 'fadeInUp 0.8s ease-out' },
                     keyframes: {
                         marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
                         fadeInUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
@@ -44,7 +44,7 @@
         .marquee-track {
             display: flex;
             width: max-content; /* THIS is the secret sauce that fixes the jump */
-            animation: scroll 20s linear infinite;
+            animation: scroll 35s linear infinite;
         }
         
         /* The Math: Slide exactly -50% (halfway) so the duplicate set takes over seamlessly */
