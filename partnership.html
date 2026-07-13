@@ -82,6 +82,7 @@
     </section>
 
     <!-- THE MASTERPLAN SECTION (NEW IMAGE GALLERY) -->
+    <!-- THE MASTERPLAN SECTION (NEW IMAGE GALLERY) -->
     <section id="masterplans" class="py-24 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 reveal">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
@@ -97,40 +98,53 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
                 <!-- Map 1: Industrial Powerhouse -->
-                <div class="map-card relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 cursor-pointer h-[400px]" onclick="openMapLightbox('images/map-industrial.jpg')">
+                <div class="map-card relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 cursor-pointer h-[350px] md:h-[400px] group" onclick="openMapLightbox('images/map-industrial.jpg')">
                     <img src="images/map-industrial.jpg" alt="Mavoko Industrial Powerhouse" class="map-card-image w-full h-full object-cover object-center">
                     <div class="map-overlay absolute inset-0 flex flex-col justify-end p-8">
                         <span class="bg-wiper-blue text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-widest mb-3 w-max">Economic Overview</span>
                         <h3 class="text-white font-black text-2xl mb-2">Kenya's Industrial Powerhouse</h3>
-                        <p class="text-gray-300 text-sm leading-relaxed">Mapping the existing economic engines, green belt logistics, and future growth zones across the constituency.</p>
-                        <div class="mt-4 flex items-center text-wiper-gold text-sm font-bold">
-                            <i class="fas fa-search-plus mr-2"></i> Click to expand blueprint
+                        <p class="text-gray-300 text-sm leading-relaxed line-clamp-2">Mapping the existing economic engines, green belt logistics, and future growth zones across the constituency.</p>
+                        <div class="mt-4 flex items-center text-wiper-gold text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-search-plus mr-2"></i> Click to expand
                         </div>
                     </div>
                 </div>
 
                 <!-- Map 2: SIR/MFEP Blueprint -->
-                <div class="map-card relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 cursor-pointer h-[400px]" onclick="openMapLightbox('images/map-blueprint.jpg')">
+                <div class="map-card relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 cursor-pointer h-[350px] md:h-[400px] group" onclick="openMapLightbox('images/map-blueprint.jpg')">
                     <img src="images/map-blueprint.jpg" alt="SIR MFEP RAIL Blueprint" class="map-card-image w-full h-full object-cover object-center">
                     <div class="map-overlay absolute inset-0 flex flex-col justify-end p-8">
                         <span class="bg-wiper-gold text-blue-900 text-[10px] font-black px-3 py-1 rounded uppercase tracking-widest mb-3 w-max">The Framework</span>
                         <h3 class="text-white font-black text-2xl mb-2">The Industrious Constituency</h3>
-                        <p class="text-gray-300 text-sm leading-relaxed">Detailed deployment map showing how SIR corridors and MFEP supply chains connect our communities.</p>
-                        <div class="mt-4 flex items-center text-wiper-gold text-sm font-bold">
-                            <i class="fas fa-search-plus mr-2"></i> Click to expand blueprint
+                        <p class="text-gray-300 text-sm leading-relaxed line-clamp-2">Detailed deployment map showing how SIR corridors and MFEP supply chains connect our communities.</p>
+                        <div class="mt-4 flex items-center text-wiper-gold text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-search-plus mr-2"></i> Click to expand
                         </div>
                     </div>
                 </div>
 
-                <!-- Map 3: Integrated Transport -->
-                <div class="map-card relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 cursor-pointer h-[400px] md:col-span-2" onclick="openMapLightbox('images/map-transport.jpg')">
+                <!-- Map 3: Conceptual Circular Route -->
+                <div class="map-card relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 cursor-pointer h-[350px] md:h-[400px] group" onclick="openMapLightbox('images/map-circular.jpg')">
+                    <img src="images/map-circular.jpg" alt="Conceptual Circular Route" class="map-card-image w-full h-full object-cover object-center">
+                    <div class="map-overlay absolute inset-0 flex flex-col justify-end p-8">
+                        <span class="bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-widest mb-3 w-max">Mobility Concept</span>
+                        <h3 class="text-white font-black text-2xl mb-2">Conceptual Circular Route</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed line-clamp-2">The baseline framework for connecting Syokimau, JKIA, and Machakos Town through strategic transport corridors.</p>
+                        <div class="mt-4 flex items-center text-wiper-gold text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-search-plus mr-2"></i> Click to expand
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map 4: Integrated Transport Blueprint -->
+                <div class="map-card relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 cursor-pointer h-[350px] md:h-[400px] group" onclick="openMapLightbox('images/map-transport.jpg')">
                     <img src="images/map-transport.jpg" alt="Integrated Transport Blueprint" class="map-card-image w-full h-full object-cover object-center">
-                    <div class="map-overlay absolute inset-0 flex flex-col justify-end p-8 md:p-12">
-                        <span class="bg-green-600 text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-widest mb-3 w-max">Mobility & Logistics</span>
-                        <h3 class="text-white font-black text-3xl md:text-4xl mb-3">Syokimau to Machakos Transit Loop</h3>
-                        <p class="text-gray-300 text-base md:text-lg max-w-3xl leading-relaxed">A comprehensive look at the integrated industrial and transport networks, including the Eastern Bypass, SGR linkages, and planned blue economy parks.</p>
-                        <div class="mt-6 flex items-center text-wiper-gold text-sm font-bold">
-                            <i class="fas fa-search-plus mr-2"></i> Click to expand blueprint
+                    <div class="map-overlay absolute inset-0 flex flex-col justify-end p-8">
+                        <span class="bg-green-600 text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-widest mb-3 w-max">Logistics Integration</span>
+                        <h3 class="text-white font-black text-2xl mb-2">Integrated Transport Blueprint</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed line-clamp-2">A comprehensive look at the integrated industrial networks, including the Eastern Bypass, SGR linkages, and planned blue economy parks.</p>
+                        <div class="mt-4 flex items-center text-wiper-gold text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-search-plus mr-2"></i> Click to expand
                         </div>
                     </div>
                 </div>
@@ -138,7 +152,6 @@
             </div>
         </div>
     </section>
-
     <!-- THE FRAMEWORK (Abridged for Partnership page) -->
     <section id="q1" class="py-24 bg-white dark:bg-gray-900 border-y border-gray-200 dark:border-gray-700 reveal">
         <div class="max-w-7xl mx-auto px-4">
