@@ -82,7 +82,6 @@
     </section>
 
     <!-- THE MASTERPLAN SECTION (NEW IMAGE GALLERY) -->
-    <!-- THE MASTERPLAN SECTION (NEW IMAGE GALLERY) -->
     <section id="masterplans" class="py-24 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 reveal">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
@@ -90,7 +89,7 @@
                 <div class="w-24 h-1.5 bg-wiper-gold mx-auto mb-6 rounded-full"></div>
                 <p class="text-xl text-wiper-blue font-bold mb-4">Muthwani is not a forgotten ward. It is a strategic economic engine.</p>
                 <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed">
-                    Click the blueprints below to explore the true potential of our constituency. From industrial powerhouses to integrated transport loops, our SIR, MFEP, and RAIL frameworks are designed specifically for this landscape.
+                    Explore the true potential of our constituency. From industrial powerhouses to integrated transport loops, our SIR, MFEP, and RAIL frameworks are designed specifically for this landscape.
                 </p>
             </div>
 
@@ -104,8 +103,8 @@
                         <span class="bg-wiper-blue text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-widest mb-3 w-max">Economic Overview</span>
                         <h3 class="text-white font-black text-2xl mb-2">Kenya's Industrial Powerhouse</h3>
                         <p class="text-gray-300 text-sm leading-relaxed line-clamp-2">Mapping the existing economic engines, green belt logistics, and future growth zones across the constituency.</p>
-                        <div class="mt-4 flex items-center text-wiper-gold text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                            <i class="fas fa-search-plus mr-2"></i> Click to expand
+                        <div class="mt-4 flex items-center text-wiper-gold text-xs font-bold transition-transform group-hover:translate-x-2">
+                            <i class="fas fa-search-plus mr-2"></i> Click to expand blueprint
                         </div>
                     </div>
                 </div>
@@ -117,8 +116,8 @@
                         <span class="bg-wiper-gold text-blue-900 text-[10px] font-black px-3 py-1 rounded uppercase tracking-widest mb-3 w-max">The Framework</span>
                         <h3 class="text-white font-black text-2xl mb-2">The Industrious Constituency</h3>
                         <p class="text-gray-300 text-sm leading-relaxed line-clamp-2">Detailed deployment map showing how SIR corridors and MFEP supply chains connect our communities.</p>
-                        <div class="mt-4 flex items-center text-wiper-gold text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                            <i class="fas fa-search-plus mr-2"></i> Click to expand
+                        <div class="mt-4 flex items-center text-wiper-gold text-xs font-bold transition-transform group-hover:translate-x-2">
+                            <i class="fas fa-search-plus mr-2"></i> Click to expand blueprint
                         </div>
                     </div>
                 </div>
@@ -130,8 +129,8 @@
                         <span class="bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-widest mb-3 w-max">Mobility Concept</span>
                         <h3 class="text-white font-black text-2xl mb-2">Conceptual Circular Route</h3>
                         <p class="text-gray-300 text-sm leading-relaxed line-clamp-2">The baseline framework for connecting Syokimau, JKIA, and Machakos Town through strategic transport corridors.</p>
-                        <div class="mt-4 flex items-center text-wiper-gold text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                            <i class="fas fa-search-plus mr-2"></i> Click to expand
+                        <div class="mt-4 flex items-center text-wiper-gold text-xs font-bold transition-transform group-hover:translate-x-2">
+                            <i class="fas fa-search-plus mr-2"></i> Click to expand blueprint
                         </div>
                     </div>
                 </div>
@@ -143,8 +142,8 @@
                         <span class="bg-green-600 text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-widest mb-3 w-max">Logistics Integration</span>
                         <h3 class="text-white font-black text-2xl mb-2">Integrated Transport Blueprint</h3>
                         <p class="text-gray-300 text-sm leading-relaxed line-clamp-2">A comprehensive look at the integrated industrial networks, including the Eastern Bypass, SGR linkages, and planned blue economy parks.</p>
-                        <div class="mt-4 flex items-center text-wiper-gold text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                            <i class="fas fa-search-plus mr-2"></i> Click to expand
+                        <div class="mt-4 flex items-center text-wiper-gold text-xs font-bold transition-transform group-hover:translate-x-2">
+                            <i class="fas fa-search-plus mr-2"></i> Click to expand blueprint
                         </div>
                     </div>
                 </div>
@@ -152,6 +151,7 @@
             </div>
         </div>
     </section>
+
     <!-- THE FRAMEWORK (Abridged for Partnership page) -->
     <section id="q1" class="py-24 bg-white dark:bg-gray-900 border-y border-gray-200 dark:border-gray-700 reveal">
         <div class="max-w-7xl mx-auto px-4">
@@ -322,8 +322,11 @@
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
         function toggleTheme() { document.documentElement.classList.toggle('dark'); localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'; }
         
-        // Scroll Reveal Animation
-        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        // Scroll Reveal Animation (Enhanced)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
