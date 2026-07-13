@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anthony Davids Mbaka | Muthwani 2027</title>
+    <title>Partner With Us | Anthony Davids Mbaka</title>
     <link rel="icon" type="image/png" href="images/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:wght@300;700;900&display=swap" rel="stylesheet">
@@ -21,506 +21,288 @@
         }
     </script>
     <style>
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        .dark .glass { background: rgba(17, 24, 39, 0.95); }
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .glass { background: rgba(255, 255, 255, 0.90); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.3); }
+        .dark .glass { background: rgba(17, 24, 39, 0.90); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.5, 0, 0, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        /* Map Connector Line */
-        .map-node:not(:last-child)::after {
-            content: '\f061';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: #ccc;
-            margin: 0 12px;
-        }
-        @media (max-width: 768px) {
-            .map-node:not(:last-child)::after {
-                content: '\f063';
-                display: block;
-                margin: 8px 0;
-            }
-        }
-        
-        /* Journey Arrow */
-        .journey-step:not(:last-child)::after {
-            content: '\f063';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: #0066CC;
-            display: block;
-            margin: 10px 0;
-            font-size: 1.2rem;
-        }
+
+        /* Beautiful Map Hover Effects */
+        .map-card-image { transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .map-card:hover .map-card-image { transform: scale(1.05); }
+        .map-overlay { background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, transparent 100%); }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 selection:bg-wiper-blue selection:text-white">
 
     <!-- NAVBAR -->
-    <nav class="fixed w-full z-50 glass border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+    <nav class="fixed w-full z-50 glass transition-all duration-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="#home" class="flex-shrink-0 flex items-center gap-3">
-                    <img src="images/logo.png" class="h-10 w-auto" alt="Logo" onerror="this.src='https://via.placeholder.com/40'">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-3 group">
+                    <img src="images/logo.png" class="h-10 w-auto group-hover:scale-105 transition-transform" alt="Logo" onerror="this.src='https://via.placeholder.com/40'">
                     <div>
-                        <h1 class="font-black text-xl tracking-tighter text-wiper-blue uppercase">Anthony Davids Mbaka</h1>
-                        <span class="text-[10px] font-bold text-wiper-gold tracking-widest uppercase">Muthwani Ward MCA 2027</span>
+                        <h1 class="font-black text-xl tracking-tighter text-wiper-blue uppercase group-hover:text-wiper-dark transition-colors">Anthony Davids Mbaka</h1>
+                        <span class="text-[10px] font-bold text-wiper-gold tracking-widest uppercase block -mt-1">Muthwani Ward MCA 2027</span>
                     </div>
                 </a>
-                <div class="hidden lg:flex items-center space-x-6 text-sm font-bold">
-                    <a href="#q1" class="hover:text-wiper-blue transition">The Plan</a>
-                    <a href="#q2" class="hover:text-wiper-blue transition">Qualifications</a>
-                    <a href="#q4" class="hover:text-wiper-blue transition">My Story</a>
-                    <a href="#invest" class="hover:text-wiper-blue transition">Invest in Muthwani</a>
-                    <button onclick="toggleTheme()" class="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full"><i id="theme-icon" class="fas fa-moon"></i></button>
+                <div class="hidden lg:flex items-center space-x-8 text-sm font-bold tracking-wide">
+                    <a href="#masterplans" class="hover:text-wiper-blue transition">The Masterplan</a>
+                    <a href="#q1" class="hover:text-wiper-blue transition">Our Framework</a>
+                    <a href="#q4" class="hover:text-wiper-blue transition">The Leader</a>
+                    <a href="#invest" class="bg-wiper-blue text-white px-5 py-2 rounded-full hover:bg-wiper-dark transition flex items-center gap-2 shadow-lg shadow-blue-500/30"><i class="fas fa-handshake text-wiper-gold"></i> Partner With Us</a>
+                    <button onclick="toggleTheme()" class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full transition-colors"><i id="theme-icon" class="fas fa-moon"></i></button>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- HERO BANNER -->
-    <section id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 overflow-hidden">
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-gray-900 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/80 to-gray-900"></div>
+        </div>
+
         <div class="max-w-5xl mx-auto px-4 text-center relative z-10 reveal active">
+            <span class="inline-block border border-wiper-gold/50 text-wiper-gold bg-wiper-gold/10 backdrop-blur-md px-4 py-1 rounded-full text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-6">Strategic Partnership Portal</span>
             
-            <p class="text-xs md:text-sm font-bold tracking-[0.2em] text-gray-500 uppercase mb-4">Machakos County | Mavoko Constituency | Muthwani Ward</p>
-            
-            <h1 class="text-5xl md:text-7xl font-serif font-black leading-tight mb-6 text-gray-900 dark:text-white">
-                Building Systems <br><span class="text-wiper-blue">That Deliver.</span>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-black leading-tight mb-8 text-white drop-shadow-2xl">
+                Building Systems <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-wiper-blue to-blue-400">That Deliver.</span>
             </h1>
             
-            <p class="text-gray-500 font-bold uppercase tracking-widest text-sm mb-6">Through:</p>
+            <p class="text-gray-400 font-bold uppercase tracking-widest text-sm mb-6">Driven by a clear blueprint:</p>
             
-            <div class="flex flex-wrap justify-center gap-4 mb-10">
-                <span class="bg-wiper-blue/10 text-wiper-blue border border-wiper-blue/20 px-5 py-2 rounded-full font-bold text-sm">Smart Infrastructure Revolution (SIR)</span>
-                <span class="bg-wiper-gold/20 text-yellow-700 dark:text-wiper-gold border border-wiper-gold/30 px-5 py-2 rounded-full font-bold text-sm">Muthwani Financial Empowerment Programme (MFEP)</span>
-                <span class="bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-300 border border-gray-300 dark:border-gray-700 px-5 py-2 rounded-full font-bold text-sm">Responsive Accountable Innovative Leadership (RAIL)</span>
-            </div>
-
-            <p class="text-xl md:text-2xl font-serif text-gray-700 dark:text-gray-300 max-w-3xl mx-auto italic">
-                "We will transform Muthwani into a connected, prosperous, accountable, and opportunity-rich ward."
-            </p>
-        </div>
-    </section>
-
-    <!-- SECTION 1: WHY MUTHWANI MATTERS -->
-    <section class="py-16 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 reveal">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4 uppercase tracking-tight">Why Muthwani Matters</h2>
-            <p class="text-lg text-wiper-blue font-bold mb-10">Muthwani is not a forgotten ward. Muthwani is a strategic growth corridor.</p>
-            
-            <!-- Strategic Conceptual Map -->
-            <div class="bg-white dark:bg-gray-900 p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 inline-block w-full">
-                <div class="flex flex-col md:flex-row justify-center items-center font-bold text-gray-700 dark:text-gray-300 text-sm md:text-base flex-wrap">
-                    <span class="map-node">Nairobi</span>
-                    <span class="map-node">JKIA</span>
-                    <span class="map-node">Eastern Bypass</span>
-                    <span class="map-node">Kangundo Road</span>
-                    <span class="map-node">Katani</span>
-                    <span class="map-node">Joska</span>
-                    <span class="map-node">Kamulu</span>
-                    <span class="map-node text-wiper-blue text-lg md:text-xl">Muthwani</span>
-                    <span class="map-node">Machakos Road</span>
-                </div>
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <span class="bg-wiper-blue/20 backdrop-blur-sm text-blue-100 border border-wiper-blue/30 px-6 py-2.5 rounded-full font-bold text-sm shadow-lg">Smart Infrastructure Revolution (SIR)</span>
+                <span class="bg-wiper-gold/20 backdrop-blur-sm text-yellow-100 border border-wiper-gold/30 px-6 py-2.5 rounded-full font-bold text-sm shadow-lg">Muthwani Financial Empowerment (MFEP)</span>
+                <span class="bg-white/10 backdrop-blur-sm text-gray-200 border border-white/20 px-6 py-2.5 rounded-full font-bold text-sm shadow-lg">Responsive Accountable Leadership (RAIL)</span>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2: THE 5 QUESTIONS -->
-    <section class="py-20 bg-white dark:bg-gray-900 reveal">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-2 uppercase">The Five Questions</h2>
-            <p class="text-gray-500 mb-12">Every voter must answer these before heading to the ballot.</p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                <a href="#q1" class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:bg-wiper-blue hover:text-white transition group shadow-sm border border-gray-200 dark:border-gray-700">
-                    <i class="fas fa-hammer text-3xl text-wiper-blue group-hover:text-white mb-4 transition"></i>
-                    <h3 class="font-bold">What will Anthony do?</h3>
-                </a>
-                <a href="#q2" class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:bg-wiper-blue hover:text-white transition group shadow-sm border border-gray-200 dark:border-gray-700">
-                    <i class="fas fa-certificate text-3xl text-wiper-blue group-hover:text-white mb-4 transition"></i>
-                    <h3 class="font-bold">Is Anthony qualified?</h3>
-                </a>
-                <a href="#q3" class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:bg-wiper-blue hover:text-white transition group shadow-sm border border-gray-200 dark:border-gray-700">
-                    <i class="fas fa-shield-alt text-3xl text-wiper-blue group-hover:text-white mb-4 transition"></i>
-                    <h3 class="font-bold">Can he be trusted?</h3>
-                </a>
-                <a href="#q4" class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:bg-wiper-blue hover:text-white transition group shadow-sm border border-gray-200 dark:border-gray-700">
-                    <i class="fas fa-book-open text-3xl text-wiper-blue group-hover:text-white mb-4 transition"></i>
-                    <h3 class="font-bold">What is his story?</h3>
-                </a>
-                <a href="#q5" class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl hover:bg-wiper-blue hover:text-white transition group shadow-sm border border-gray-200 dark:border-gray-700 lg:col-span-1 sm:col-span-2">
-                    <i class="fas fa-check-circle text-3xl text-wiper-blue group-hover:text-white mb-4 transition"></i>
-                    <h3 class="font-bold">Why Anthony?</h3>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- QUESTION 1: WHAT WILL ANTHONY DO? (FRAMEWORKS) -->
-    <section id="q1" class="py-24 bg-gray-50 dark:bg-gray-800 border-y border-gray-200 dark:border-gray-700 reveal">
+    <!-- THE MASTERPLAN SECTION (NEW IMAGE GALLERY) -->
+    <section id="masterplans" class="py-24 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 reveal">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <span class="text-wiper-gold font-bold tracking-widest uppercase text-sm">Question 1</span>
-                <h2 class="text-4xl font-serif font-bold text-wiper-blue mt-2">What will Anthony do for Muthwani?</h2>
-                <p class="max-w-3xl mx-auto mt-4 text-gray-600 dark:text-gray-300">
-                    He will transform Muthwani from a struggling ward into a connected, prosperous, and opportunity-rich economic corridor. We are not just building projects; we are building an ecosystem.
+                <h2 class="text-4xl md:text-5xl font-black mb-4 uppercase tracking-tight text-gray-900 dark:text-white">Why Muthwani Matters</h2>
+                <div class="w-24 h-1.5 bg-wiper-gold mx-auto mb-6 rounded-full"></div>
+                <p class="text-xl text-wiper-blue font-bold mb-4">Muthwani is not a forgotten ward. It is a strategic economic engine.</p>
+                <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed">
+                    Click the blueprints below to explore the true potential of our constituency. From industrial powerhouses to integrated transport loops, our SIR, MFEP, and RAIL frameworks are designed specifically for this landscape.
                 </p>
             </div>
 
-            <!-- SIR / MFEP / RAIL Cards -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Blueprint Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <!-- SIR -->
-                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg border-t-4 border-wiper-blue">
-                    <h3 class="text-xl font-bold mb-2 dark:text-white">SIR</h3>
-                    <p class="text-wiper-blue text-xs font-bold uppercase tracking-widest mb-6">Building the Foundation</p>
-                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Roads</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Water</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Drainage</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Street Lighting</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Digital Infrastructure</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Public Facilities</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Transportation Networks</li>
-                    </ul>
+                <!-- Map 1: Industrial Powerhouse -->
+                <div class="map-card relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 cursor-pointer h-[400px]" onclick="openMapLightbox('images/map-industrial.jpg')">
+                    <img src="images/map-industrial.jpg" alt="Mavoko Industrial Powerhouse" class="map-card-image w-full h-full object-cover object-center">
+                    <div class="map-overlay absolute inset-0 flex flex-col justify-end p-8">
+                        <span class="bg-wiper-blue text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-widest mb-3 w-max">Economic Overview</span>
+                        <h3 class="text-white font-black text-2xl mb-2">Kenya's Industrial Powerhouse</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">Mapping the existing economic engines, green belt logistics, and future growth zones across the constituency.</p>
+                        <div class="mt-4 flex items-center text-wiper-gold text-sm font-bold">
+                            <i class="fas fa-search-plus mr-2"></i> Click to expand blueprint
+                        </div>
+                    </div>
                 </div>
 
-                <!-- MFEP -->
-                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg border-t-4 border-wiper-gold">
-                    <h3 class="text-xl font-bold mb-2 dark:text-white">MFEP</h3>
-                    <p class="text-yellow-600 dark:text-wiper-gold text-xs font-bold uppercase tracking-widest mb-6">Powering the People</p>
-                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                        <li><i class="fas fa-check text-wiper-gold mr-2"></i> Youth Opportunities</li>
-                        <li><i class="fas fa-check text-wiper-gold mr-2"></i> Women Empowerment</li>
-                        <li><i class="fas fa-check text-wiper-gold mr-2"></i> SME Development</li>
-                        <li><i class="fas fa-check text-wiper-gold mr-2"></i> Investment Attraction</li>
-                        <li><i class="fas fa-check text-wiper-gold mr-2"></i> Skills Development</li>
-                        <li><i class="fas fa-check text-wiper-gold mr-2"></i> Market Access</li>
-                    </ul>
+                <!-- Map 2: SIR/MFEP Blueprint -->
+                <div class="map-card relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 cursor-pointer h-[400px]" onclick="openMapLightbox('images/map-blueprint.jpg')">
+                    <img src="images/map-blueprint.jpg" alt="SIR MFEP RAIL Blueprint" class="map-card-image w-full h-full object-cover object-center">
+                    <div class="map-overlay absolute inset-0 flex flex-col justify-end p-8">
+                        <span class="bg-wiper-gold text-blue-900 text-[10px] font-black px-3 py-1 rounded uppercase tracking-widest mb-3 w-max">The Framework</span>
+                        <h3 class="text-white font-black text-2xl mb-2">The Industrious Constituency</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">Detailed deployment map showing how SIR corridors and MFEP supply chains connect our communities.</p>
+                        <div class="mt-4 flex items-center text-wiper-gold text-sm font-bold">
+                            <i class="fas fa-search-plus mr-2"></i> Click to expand blueprint
+                        </div>
+                    </div>
                 </div>
 
-                <!-- RAIL -->
-                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg border-t-4 border-gray-500">
-                    <h3 class="text-xl font-bold mb-2 dark:text-white">RAIL</h3>
-                    <p class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-6">Delivering Accountable Governance</p>
-                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                        <li><i class="fas fa-check text-gray-400 mr-2"></i> Public Participation</li>
-                        <li><i class="fas fa-check text-gray-400 mr-2"></i> Transparency</li>
-                        <li><i class="fas fa-check text-gray-400 mr-2"></i> Innovation</li>
-                        <li><i class="fas fa-check text-gray-400 mr-2"></i> Citizen Reporting</li>
-                        <li><i class="fas fa-check text-gray-400 mr-2"></i> Performance Tracking</li>
-                        <li><i class="fas fa-check text-gray-400 mr-2"></i> Oversight</li>
-                    </ul>
+                <!-- Map 3: Integrated Transport -->
+                <div class="map-card relative rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 cursor-pointer h-[400px] md:col-span-2" onclick="openMapLightbox('images/map-transport.jpg')">
+                    <img src="images/map-transport.jpg" alt="Integrated Transport Blueprint" class="map-card-image w-full h-full object-cover object-center">
+                    <div class="map-overlay absolute inset-0 flex flex-col justify-end p-8 md:p-12">
+                        <span class="bg-green-600 text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-widest mb-3 w-max">Mobility & Logistics</span>
+                        <h3 class="text-white font-black text-3xl md:text-4xl mb-3">Syokimau to Machakos Transit Loop</h3>
+                        <p class="text-gray-300 text-base md:text-lg max-w-3xl leading-relaxed">A comprehensive look at the integrated industrial and transport networks, including the Eastern Bypass, SGR linkages, and planned blue economy parks.</p>
+                        <div class="mt-6 flex items-center text-wiper-gold text-sm font-bold">
+                            <i class="fas fa-search-plus mr-2"></i> Click to expand blueprint
+                        </div>
+                    </div>
                 </div>
 
             </div>
+        </div>
+    </section>
 
-            <!-- NEW ADDITION: QUARRY TO INDUSTRY -->
-            <div class="bg-gray-900 text-white rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
-                <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
-                <div class="relative z-10">
-                    <span class="text-wiper-gold font-bold tracking-widest uppercase text-xs mb-2 block">Signature Feature</span>
-                    <h3 class="text-3xl md:text-4xl font-bold uppercase mb-8">Quarry to Industry Transformation</h3>
+    <!-- THE FRAMEWORK (Abridged for Partnership page) -->
+    <section id="q1" class="py-24 bg-white dark:bg-gray-900 border-y border-gray-200 dark:border-gray-700 reveal">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-wiper-gold font-bold tracking-widest uppercase text-sm border-b-2 border-wiper-blue pb-1">The Strategy</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-black text-gray-900 dark:text-white mt-6">How We Deliver Results</h2>
+                <p class="max-w-3xl mx-auto mt-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                    We are not just building projects; <span class="font-bold text-wiper-blue">we are building an ecosystem.</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                <div class="bg-gray-50 dark:bg-gray-800 p-10 rounded-3xl shadow-lg border-t-4 border-wiper-blue hover:-translate-y-2 transition-transform duration-300">
+                    <h3 class="text-3xl font-black mb-2 dark:text-white">SIR</h3>
+                    <p class="text-wiper-blue text-xs font-black uppercase tracking-widest mb-6 border-b border-gray-200 dark:border-gray-700 pb-4">Infrastructure Revolution</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Connecting communities through paved corridors, reliable water grids, digital networks, and smart street lighting to drive economic mobility.</p>
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-800 p-10 rounded-3xl shadow-lg border-t-4 border-wiper-gold hover:-translate-y-2 transition-transform duration-300">
+                    <h3 class="text-3xl font-black mb-2 dark:text-white">MFEP</h3>
+                    <p class="text-yellow-600 dark:text-wiper-gold text-xs font-black uppercase tracking-widest mb-6 border-b border-gray-200 dark:border-gray-700 pb-4">Financial Empowerment</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Transforming local potential into wealth through SME clinics, targeted youth opportunities, local supplier integration, and direct market access.</p>
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-800 p-10 rounded-3xl shadow-lg border-t-4 border-gray-500 hover:-translate-y-2 transition-transform duration-300">
+                    <h3 class="text-3xl font-black mb-2 dark:text-white">RAIL</h3>
+                    <p class="text-gray-500 text-xs font-black uppercase tracking-widest mb-6 border-b border-gray-200 dark:border-gray-700 pb-4">Accountable Leadership</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Ensuring transparent resource allocation, rigorous performance tracking, open public participation, and measurable delivery of all initiatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE LEADER (Qualifications & Story) -->
+    <section id="q4" class="py-24 bg-gray-50 dark:bg-gray-800 reveal">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div>
+                    <span class="text-wiper-gold font-bold tracking-widest uppercase text-sm border-b-2 border-wiper-blue pb-1">The Architect</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-black dark:text-white mt-6 mb-8 leading-tight">A Systems Strategist Ready for Day One.</h2>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-                        <div>
-                            <h4 class="text-red-400 font-bold mb-2 uppercase">Current Situation</h4>
-                            <p class="text-gray-400 text-sm">The ward hosts numerous heavy quarry operations and construction-material value chains. Raw materials leave without maximizing local potential.</p>
+                    <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
+                        Anthony Davids Mbaka brings a powerful combination of academic rigor (BA Int. Relations & Diplomacy, USIU-A), corporate operational excellence, and deep constitutional knowledge. 
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-8">
+                        His background in manufacturing, logistics, and entrepreneurship means he doesn't think in terms of political election cycles—he thinks in terms of <strong class="text-wiper-blue">sustainable development cycles.</strong>
+                    </p>
+
+                    <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl border-l-4 border-wiper-blue shadow-md">
+                        <p class="text-gray-600 dark:text-gray-400 italic font-medium">
+                            "Muthwani cannot afford another five years of trial-and-error leadership. We need a framework, and we need a leader who knows how to execute it."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-900 p-10 md:p-12 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700">
+                    <h3 class="font-black text-2xl mb-8 border-b border-gray-100 dark:border-gray-800 pb-4">The Guarantee of Oversight</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-wiper-blue/10 flex items-center justify-center flex-shrink-0 mt-1"><i class="fas fa-file-alt text-wiper-blue"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white">Quarterly Ward Reports</h4>
+                                <p class="text-sm text-gray-500 mt-1">Data-driven updates on fund utilization and project progress.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-wiper-blue/10 flex items-center justify-center flex-shrink-0 mt-1"><i class="fas fa-users text-wiper-blue"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white">Inclusive Public Forums</h4>
+                                <p class="text-sm text-gray-500 mt-1">Direct engagement ensuring the community dictates the priorities.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-wiper-blue/10 flex items-center justify-center flex-shrink-0 mt-1"><i class="fas fa-balance-scale text-wiper-blue"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white">Absolute Transparency</h4>
+                                <p class="text-sm text-gray-500 mt-1">An open-door policy regarding county legislation and resource allocation.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE PARTNERSHIP PITCH (Subtle Contribution Ask) -->
+    <section id="invest" class="py-32 bg-gray-900 text-white relative overflow-hidden reveal">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-wiper-blue/30 via-gray-900 to-black"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            
+            <div class="text-center mb-20">
+                <span class="inline-block px-5 py-2 rounded-full border border-wiper-gold/50 text-wiper-gold font-bold tracking-widest uppercase text-xs mb-6 bg-wiper-gold/10 backdrop-blur-sm shadow-[0_0_15px_rgba(255,215,0,0.2)]">Public Private Community Partnership</span>
+                <h2 class="text-5xl md:text-6xl font-black uppercase tracking-tight mb-6 drop-shadow-xl text-white">Resource The Movement</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">Great blueprints require great builders. To fully implement the SIR, MFEP, and RAIL frameworks, we are calling on visionaries to partner with us. This is an investment in the systems that will deliver our future.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-12">
+                
+                <!-- Building Together -->
+                <div class="bg-white/5 backdrop-blur-xl p-10 md:p-14 rounded-[2.5rem] border border-white/10">
+                    <h3 class="text-3xl font-black mb-8 flex items-center gap-4"><i class="fas fa-puzzle-piece text-wiper-blue"></i> Who We Are Looking For</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="border-l-4 border-wiper-blue pl-6 py-1">
+                            <h4 class="text-white font-bold text-lg uppercase tracking-wide mb-2">Private Sector Catalysts</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">Business owners, developers, logistics operators, and local enterprises ready to co-create a thriving economic environment.</p>
                         </div>
-                        <div>
-                            <h4 class="text-wiper-gold font-bold mb-2 uppercase">The MCA's Role</h4>
-                            <p class="text-gray-400 text-sm mb-2">Not operator. Not contractor. Not trader. But:</p>
-                            <div class="flex gap-4 font-bold text-xs text-white">
-                                <span><i class="fas fa-check text-wiper-blue"></i> Connector</span>
-                                <span><i class="fas fa-check text-wiper-blue"></i> Facilitator</span>
-                                <span><i class="fas fa-check text-wiper-blue"></i> Convener</span>
-                                <span><i class="fas fa-check text-wiper-blue"></i> Champion</span>
+                        <div class="border-l-4 border-wiper-gold pl-6 py-1">
+                            <h4 class="text-white font-bold text-lg uppercase tracking-wide mb-2">Community Champions</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">Residents, diaspora members, youth networks, and thought leaders who want to actively shape the ward's direction.</p>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-6 py-1">
+                            <h4 class="text-white font-bold text-lg uppercase tracking-wide mb-2">Knowledge Partners</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">Professionals, urban planners, educators, and NGOs willing to lend expertise to the execution of our masterplans.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Subtle Financial Ask -->
+                <div class="flex flex-col justify-center">
+                    <div class="bg-gradient-to-br from-wiper-blue to-[#003366] p-10 md:p-14 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,102,204,0.3)] relative overflow-hidden group border border-blue-400/30">
+                        <div class="absolute top-0 right-0 opacity-10 transform translate-x-10 -translate-y-10 group-hover:scale-110 transition-transform duration-700">
+                            <i class="fas fa-chart-line text-[15rem]"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <span class="bg-white text-wiper-blue text-xs font-black px-3 py-1 rounded uppercase tracking-widest mb-6 inline-block">Strategic Backing</span>
+                            <h4 class="text-3xl md:text-4xl font-black mb-6 leading-tight text-white">Fuel The Machinery of Change</h4>
+                            <p class="text-blue-100 mb-10 text-lg leading-relaxed max-w-md">
+                                Running a data-driven, systems-focused campaign across a vast constituency requires resources. By contributing financially, you are directly funding the logistics, civic education, and mobilization needed to place competent leadership in office.
+                            </p>
+                            
+                            <!-- Buttons -->
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <a href="index.html#donate" class="inline-flex items-center justify-center gap-3 bg-wiper-gold text-blue-900 px-8 py-4 rounded-full font-black hover:bg-yellow-400 transition shadow-xl uppercase tracking-widest text-sm w-full sm:w-auto">
+                                    Contribute Now <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <a href="https://forms.gle/wmodUha5jR1JbZ8F7" target="_blank" class="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition uppercase tracking-widest text-sm w-full sm:w-auto">
+                                    Pledge Support
+                                </a>
                             </div>
                         </div>
                     </div>
-
-                    <h4 class="text-center text-sm font-bold text-gray-500 uppercase tracking-widest mb-6">Future Vision Flow</h4>
-                    <div class="flex flex-wrap justify-center items-center gap-2 text-sm font-bold text-gray-300">
-                        <span class="bg-gray-800 px-4 py-2 rounded">Quarries</span> <i class="fas fa-arrow-right text-wiper-blue"></i>
-                        <span class="bg-gray-800 px-4 py-2 rounded">Processing</span> <i class="fas fa-arrow-right text-wiper-blue"></i>
-                        <span class="bg-gray-800 px-4 py-2 rounded">Manufacturing</span> <i class="fas fa-arrow-right text-wiper-blue"></i>
-                        <span class="bg-gray-800 px-4 py-2 rounded">Construction Products</span> <i class="fas fa-arrow-right text-wiper-gold"></i>
-                        <span class="bg-gray-800 px-4 py-2 rounded">Industrial Growth</span> <i class="fas fa-arrow-right text-green-500"></i>
-                        <span class="bg-gray-800 px-4 py-2 rounded">Employment</span> <i class="fas fa-arrow-right text-green-500"></i>
-                        <span class="bg-wiper-blue px-4 py-2 rounded text-white shadow-lg">Prosperity</span>
-                    </div>
-
                 </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center border-t border-gray-800 pt-12 mt-12 flex flex-col items-center">
+                <img src="images/logo.png" class="h-12 w-auto mb-6 opacity-50 grayscale" alt="Logo" onerror="this.src='https://via.placeholder.com/40'">
+                <p class="text-sm text-gray-500 font-medium tracking-widest uppercase">&copy; 2027 Anthony Mbaka Campaign. Kazi Si Maneno.</p>
             </div>
         </div>
     </section>
 
-    <!-- QUESTION 2: IS ANTHONY QUALIFIED? -->
-    <section id="q2" class="py-24 bg-white dark:bg-gray-900 reveal">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="text-wiper-gold font-bold tracking-widest uppercase text-sm">Question 2</span>
-                <h2 class="text-4xl font-serif font-bold text-gray-900 dark:text-white mt-2">Is Anthony Qualified?</h2>
-                <p class="max-w-2xl mx-auto mt-4 text-gray-600 dark:text-gray-400">
-                    Yes. Anthony brings a rare, powerful combination of academic rigor, corporate operational excellence, and deep constitutional knowledge. He is a systems strategist ready to govern from Day One.
-                </p>
-            </div>
-
-            <!-- Qualification Dashboard -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
-                    <i class="fas fa-graduation-cap text-3xl text-wiper-blue mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Academic & Certs</h3>
-                    <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
-                        <li><strong>BA Int. Relations & Diplomacy</strong><br>USIU-Africa</li>
-                        <li class="pt-2"><strong>Professional Certification</strong><br>African Milling School</li>
-                    </ul>
-                </div>
-
-                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
-                    <i class="fas fa-gavel text-3xl text-red-500 mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Governance</h3>
-                    <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1 list-disc pl-4">
-                        <li>Constitution of Kenya 2010</li>
-                        <li>County Governments Act</li>
-                        <li>Public Finance Management Act</li>
-                        <li>Public Participation</li>
-                        <li>County Planning & Oversight</li>
-                    </ul>
-                </div>
-
-                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
-                    <i class="fas fa-briefcase text-3xl text-wiper-gold mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Professional</h3>
-                    <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1 list-disc pl-4">
-                        <li>Manufacturing & Logistics</li>
-                        <li>Transport & Operations</li>
-                        <li>Entrepreneurship</li>
-                        <li>Systems Management</li>
-                    </ul>
-                </div>
-
-                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
-                    <i class="fas fa-users text-3xl text-green-500 mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Community Leadership</h3>
-                    <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1 list-disc pl-4">
-                        <li>PNU Coordinator</li>
-                        <li>Grassroots Mobilisation</li>
-                        <li>Public Engagement</li>
-                        <li>Development Advocacy</li>
-                    </ul>
-                </div>
-
-            </div>
+    <!-- LIGHTBOX FOR MAPS -->
+    <div id="mapLightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex items-center justify-center p-4 backdrop-blur-md transition-opacity duration-300" onclick="closeMapLightbox()">
+        <button class="absolute top-6 right-6 text-white/50 hover:text-white text-5xl font-bold transition z-50">&times;</button>
+        <div class="relative w-full max-w-7xl h-[85vh] flex items-center justify-center">
+            <img id="lightboxImage" src="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-300">
+            <p class="absolute bottom-[-30px] text-gray-400 text-sm tracking-widest uppercase">Click anywhere to close</p>
         </div>
-    </section>
-
-    <!-- QUESTION 3: CAN HE BE TRUSTED? -->
-    <section id="q3" class="py-24 bg-wiper-blue text-white reveal">
-        <div class="max-w-5xl mx-auto px-4 text-center">
-            <span class="text-wiper-gold font-bold tracking-widest uppercase text-sm">Question 3</span>
-            <h2 class="text-4xl font-serif font-bold mt-2 mb-6">Can Anthony Be Trusted?</h2>
-            <p class="text-lg md:text-xl font-light mb-12 max-w-3xl mx-auto opacity-90">
-                Trust in leadership must be built on verifiable accountability. Anthony does not ask for your blind trust—he guarantees your oversight.
-            </p>
-
-            <div class="bg-white text-gray-900 rounded-2xl p-8 md:p-12 shadow-2xl text-left max-w-3xl mx-auto">
-                <h3 class="text-2xl font-bold uppercase tracking-tight mb-6 text-center border-b border-gray-200 pb-4">My Leadership Covenant</h3>
-                <p class="text-gray-500 text-center text-sm font-bold mb-8">I commit to:</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-lg">
-                        <i class="fas fa-check-circle text-wiper-blue text-xl"></i>
-                        <span class="font-bold text-sm">Quarterly Ward Reports</span>
-                    </div>
-                    <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-lg">
-                        <i class="fas fa-check-circle text-wiper-blue text-xl"></i>
-                        <span class="font-bold text-sm">Open Citizen Forums</span>
-                    </div>
-                    <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-lg">
-                        <i class="fas fa-check-circle text-wiper-blue text-xl"></i>
-                        <span class="font-bold text-sm">Public Participation</span>
-                    </div>
-                    <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-lg">
-                        <i class="fas fa-check-circle text-wiper-blue text-xl"></i>
-                        <span class="font-bold text-sm">Transparent Communication</span>
-                    </div>
-                    <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-lg">
-                        <i class="fas fa-check-circle text-wiper-blue text-xl"></i>
-                        <span class="font-bold text-sm">Accountability for Resources</span>
-                    </div>
-                    <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-lg">
-                        <i class="fas fa-check-circle text-wiper-blue text-xl"></i>
-                        <span class="font-bold text-sm">Performance Monitoring</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- QUESTION 4: WHAT IS HIS STORY? -->
-    <section id="q4" class="py-24 bg-gray-50 dark:bg-gray-800 reveal">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="text-wiper-gold font-bold tracking-widest uppercase text-sm">Question 4</span>
-                <h2 class="text-4xl font-serif font-bold text-gray-900 dark:text-white mt-2">What is His Story?</h2>
-                <p class="text-gray-500 mt-2">People support people they understand.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                
-                <!-- The Narrative -->
-                <div>
-                    <h3 class="text-2xl font-bold text-wiper-blue uppercase tracking-tight mb-2">The Steward of Muthwani</h3>
-                    <h4 class="text-lg font-bold dark:text-white mb-6">A Leader Shaped By Purpose. Driven By Impact.</h4>
-                    
-                    <div class="space-y-4 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        <p>Anthony Davids Mbaka is a systems strategist, entrepreneur, development advocate and community leader committed to building sustainable solutions for Muthwani Ward. He holds a Bachelor of Arts in International Relations and Diplomacy from United States International University-Africa and a professional certification in Flour Milling Operations from the African Milling School.</p>
-                        
-                        <p>His professional journey includes experience in manufacturing, logistics, transportation, operations management and entrepreneurship through organizations such as Chandaria Industries, Bingwa Flour Mills, Roy Hauliers and Davids Travel House. These experiences shaped his belief that sustainable development is achieved through systems, accountability and measurable outcomes.</p>
-                        
-                        <h5 class="font-bold text-gray-900 dark:text-white mt-6 mb-2">The Decision Set Before Me & The Closed Doors Story</h5>
-                        <p>Anthony’s journey is one of resilience. Throughout his career, he faced his share of "closed doors." But he realized that every closed door was not a rejection—it was preparation for a much larger responsibility. He chose public service because he looked at Muthwani Ward and saw incredible, untapped potential being suffocated by poor leadership.</p>
-                    </div>
-
-                    <!-- Video Placeholder -->
-                    <div class="mt-8 bg-black rounded-xl overflow-hidden relative group cursor-pointer aspect-video border border-gray-700 shadow-xl">
-                        <div class="absolute inset-0 flex items-center justify-center z-10">
-                            <i class="fas fa-play-circle text-5xl text-white opacity-80 group-hover:scale-110 group-hover:opacity-100 transition"></i>
-                        </div>
-                        <div class="absolute bottom-4 left-4 z-10">
-                            <p class="text-white font-bold text-sm tracking-widest uppercase">The Closed Doors That Prepared Me</p>
-                        </div>
-                        <div class="w-full h-full bg-gray-800 opacity-50"></div>
-                    </div>
-                </div>
-
-                <!-- The Journey Flow -->
-                <div class="flex flex-col items-center justify-center bg-white dark:bg-gray-900 p-10 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
-                    <h4 class="font-bold text-lg text-gray-400 uppercase tracking-widest mb-8">My Journey</h4>
-                    
-                    <div class="text-center font-black text-xl text-gray-800 dark:text-gray-100 space-y-1">
-                        <div class="journey-step">Growing</div>
-                        <div class="journey-step">Learning</div>
-                        <div class="journey-step">Working</div>
-                        <div class="journey-step">Leading</div>
-                        <div class="journey-step text-red-500">Closed Doors</div>
-                        <div class="journey-step text-wiper-gold">Preparation</div>
-                        <div class="journey-step text-wiper-blue">Purpose</div>
-                        <div class="journey-step text-wiper-blue">Public Service</div>
-                        <div class="text-3xl text-wiper-blue mt-4 uppercase">Muthwani 2027</div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- QUESTION 5: WHY ANTHONY? -->
-    <section id="q5" class="py-24 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 reveal">
-        <div class="max-w-5xl mx-auto px-4 text-center">
-            <span class="text-wiper-gold font-bold tracking-widest uppercase text-sm">Question 5</span>
-            <h2 class="text-4xl font-serif font-bold text-gray-900 dark:text-white mt-2 mb-16">Why Anthony?</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <div class="p-8 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700">
-                    <p class="text-gray-500 line-through mb-2">Most politicians offer projects.</p>
-                    <h3 class="text-2xl font-bold text-wiper-blue">Anthony offers systems.</h3>
-                </div>
-
-                <div class="p-8 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700">
-                    <p class="text-gray-500 line-through mb-2">Most politicians offer promises.</p>
-                    <h3 class="text-2xl font-bold text-wiper-blue">Anthony offers a framework.</h3>
-                </div>
-
-                <div class="p-8 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700">
-                    <p class="text-gray-500 line-through mb-2">Most politicians think election cycle.</p>
-                    <h3 class="text-2xl font-bold text-wiper-blue">Anthony thinks development cycle.</h3>
-                </div>
-
-            </div>
-            
-            <p class="mt-12 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto italic">
-                You should choose Anthony because Muthwani cannot afford another five years of trial-and-error leadership. Anthony is the only candidate offering a clear, actionable blueprint for our future.
-            </p>
-        </div>
-    </section>
-
-    <!-- THE PARTNERSHIP PAGE & INVEST IN MUTHWANI -->
-    <section id="invest" class="py-24 bg-gray-900 text-white relative overflow-hidden reveal">
-        <div class="absolute inset-0 bg-gradient-to-br from-wiper-blue/20 to-black/90"></div>
-        <div class="max-w-7xl mx-auto px-4 relative z-10">
-            
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-4">Invest in Muthwani</h2>
-                <p class="text-wiper-gold font-bold tracking-widest uppercase text-sm">Public Private Community Partnership Platform</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
-                <!-- Why Invest -->
-                <div>
-                    <h3 class="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">Why Invest In Muthwani?</h3>
-                    <ul class="space-y-3 text-gray-300">
-                        <li><i class="fas fa-check text-wiper-gold mr-2"></i> Strategic Location</li>
-                        <li><i class="fas fa-check text-wiper-gold mr-2"></i> Growing Population</li>
-                        <li><i class="fas fa-check text-wiper-gold mr-2"></i> Construction Sector</li>
-                        <li><i class="fas fa-check text-wiper-gold mr-2"></i> Transport Corridors</li>
-                        <li><i class="fas fa-check text-wiper-gold mr-2"></i> Emerging Markets</li>
-                        <li><i class="fas fa-check text-wiper-gold mr-2"></i> Industrial Potential</li>
-                    </ul>
-
-                    <h3 class="text-2xl font-bold mt-10 mb-6 border-b border-gray-700 pb-2">Investment Opportunities</h3>
-                    <div class="flex flex-wrap gap-2 text-xs font-bold text-gray-900">
-                        <span class="bg-gray-200 px-3 py-1.5 rounded">Housing</span>
-                        <span class="bg-gray-200 px-3 py-1.5 rounded">Retail</span>
-                        <span class="bg-gray-200 px-3 py-1.5 rounded">Logistics</span>
-                        <span class="bg-gray-200 px-3 py-1.5 rounded">Construction Materials</span>
-                        <span class="bg-gray-200 px-3 py-1.5 rounded">Skills Development</span>
-                        <span class="bg-gray-200 px-3 py-1.5 rounded">Technology</span>
-                        <span class="bg-gray-200 px-3 py-1.5 rounded">Manufacturing</span>
-                        <span class="bg-gray-200 px-3 py-1.5 rounded">Agribusiness</span>
-                    </div>
-                </div>
-
-                <!-- Building Together / Partners -->
-                <div>
-                    <h3 class="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">Building Muthwani Together</h3>
-                    <div class="space-y-6">
-                        
-                        <div>
-                            <h4 class="text-wiper-blue font-bold text-sm uppercase mb-2">Community Partners</h4>
-                            <p class="text-xs text-gray-400">Residents, Youth Groups, Women's Groups, Churches, SACCOs, CBOs</p>
-                        </div>
-                        <div>
-                            <h4 class="text-wiper-blue font-bold text-sm uppercase mb-2">Private Sector Partners</h4>
-                            <p class="text-xs text-gray-400">Quarry Owners, Developers, Transport Companies, Manufacturers, SMEs, Technology Firms</p>
-                        </div>
-                        <div>
-                            <h4 class="text-wiper-blue font-bold text-sm uppercase mb-2">Government Partners</h4>
-                            <p class="text-xs text-gray-400">Machakos County Government, National Government Agencies, Development Authorities</p>
-                        </div>
-                        <div>
-                            <h4 class="text-wiper-blue font-bold text-sm uppercase mb-2">Development & Knowledge Partners</h4>
-                            <p class="text-xs text-gray-400">NGOs, Faith-Based Organisations, Foundations, Universities, TVET Institutions, Innovation Hubs</p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer CTA -->
-            <div class="text-center border-t border-gray-800 pt-12">
-                <a href="https://forms.gle/wmodUha5jR1JbZ8F7" target="_blank" class="inline-block bg-wiper-blue text-white px-10 py-4 rounded-full font-bold hover:bg-blue-600 transition shadow-lg shadow-wiper-blue/30 uppercase tracking-widest text-sm">
-                    Become a Partner Today
-                </a>
-                <p class="text-xs text-gray-500 mt-6">&copy; 2027 Anthony Mbaka Campaign. All rights reserved.</p>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <script>
         // Dark Mode Logic
@@ -528,14 +310,37 @@
         function toggleTheme() { document.documentElement.classList.toggle('dark'); localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'; }
         
         // Scroll Reveal Animation
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1 });
+        }, observerOptions);
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Lightbox Logic for Maps
+        const lightbox = document.getElementById('mapLightbox');
+        const lightboxImg = document.getElementById('lightboxImage');
+        
+        function openMapLightbox(imageSrc) {
+            lightboxImg.src = imageSrc;
+            lightbox.classList.remove('hidden');
+            // Slight delay to allow display block to apply before animating scale
+            setTimeout(() => {
+                lightboxImg.classList.remove('scale-95');
+                lightboxImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeMapLightbox() {
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+            }, 300); // Wait for transition to finish
+        }
     </script>
 </body>
 </html>
